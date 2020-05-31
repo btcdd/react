@@ -17,7 +17,7 @@ export default class Container extends React.Component {
    constructor({match,location,history}){
       super(...arguments);
       const query = queryString.parse(location.search);
-      
+        
       // console.log("location>>>>>",location);
       // console.log("props>>>>>",this.props);
       
