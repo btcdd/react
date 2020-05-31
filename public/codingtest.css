@@ -1,0 +1,23 @@
+
+fieldset {
+    border-radius: 10px;
+    border: solid rgb(255, 255, 255) 1px;
+    background-color: #fff;
+}
+
+.example-division {
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 1em; 
+}
+
+
+
+
+
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both
+}

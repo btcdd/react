@@ -1,0 +1,62 @@
+li {
+    padding: 0 10px;
+    list-style: none;
+    margin: 8px 0;
+    color: rgb(59, 59, 59);
+}
+
+.sub-problem-title {
+    float: inline-start;
+    background-color: #D8D6D6;
+    width: 100%;
+    height: 10%;
+    font-weight: bold;
+}
+
+.sub-problem-title:hover {
+    background-color: #EFEEED;
+}
+
+.open {
+    padding: 0 5%;
+    background-color: #FCFBF4;
+}
+
+.problem {
+    
+}
+
+p {
+    display: inline-block;
+}
+
+.problem-contents-title, .problem-examInput-title, .problem-examOutput-title {
+    font-weight: bold;
+    background-color: #997000;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 8px; 
+}
+
+.problem-contents, .problem-examInput, .problem-examOutput {
+    margin-top: 0
+}
+
+.problem-index {
+    width: 20%;
+    height: 100%;
+    padding: 5px 3px;
+    text-align: center;
+    margin-right: 10px;
+    color:#494949;
+}
+
+.division {
+    width: 100%;
+}
+
+
+
+ul {
+    padding: 0;
+}
