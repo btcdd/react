@@ -34,19 +34,23 @@ export default class Countdown extends React.Component {
       );
    }
 
-   componentDidMount(){ 
+   componentDidMount(){    
        this.interval = setInterval( () => {
            const date = this.calculateCountdown(this.props.date);
+           console.log("date>>",date);
            date ? this.setState(date) : this.stop();
        },1000)
    }
+   
    componentWillUnmount(){
        this.stop();
    }
    stop(){
-       alert('시험이 종료되었습니다.');
-       window.close();
-       clearInterval(this.interval);
+      alert('시험이 종료되었습니다.');
+      clearInterval(this.interval);
+      window.close();
+      window.location.href ="http://localhost:8088/compiletest/";
+   
    }
 
    calculateCountdown(endDate){

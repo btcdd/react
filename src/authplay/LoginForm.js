@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Redirect } from "react-router-dom"
+import styles from '../css/LoginForm.css';
 import axios from 'axios';
 
 import queryString from 'query-string';
@@ -45,7 +46,7 @@ function LoginForm({ authenticated, login, location }) {
   if (authenticated) return <Redirect to={from} />
 
   return (
-    <>
+    <div className={styles.LoginForm}>
       <h1>Login</h1>
       <input
         value={name}
@@ -66,7 +67,7 @@ function LoginForm({ authenticated, login, location }) {
         placeholder="인증번호"
       />      
       <button onClick={handleClick}>Login</button>
-    </>
+    </div>
   )
 }
 

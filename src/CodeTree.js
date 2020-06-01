@@ -10,7 +10,7 @@ import { signIn } from './authplay/auth';
 
 import AuthRoute from './authplay/AuthRoute';
 import LoginForm from './authplay/LoginForm';
-
+import FinishPage from './authplay/FinishPage';
 
 
 function CodeTree(){
@@ -28,7 +28,13 @@ function CodeTree(){
 
    return (
       <div className={styles.CodeTree}>
- 
+            <AuthRoute 
+               authenticated={authenticated}
+               exact
+               path="/"               
+               render={props => <Container  user={user}
+               {...props}/>}
+            /> 
          <Switch>
             <Route
                path="/login"
@@ -37,11 +43,11 @@ function CodeTree(){
                      login={login} {...props} />
                   )}
                />
-            <AuthRoute 
-               authenticated={authenticated}
-               path="/"
-               render={props => <Container  user={user}
-               {...props}/>}
+            <Route
+               path="/FinishPage"
+               render={
+                  props => <FinishPage {...props}/>
+               }
             />
          </Switch>
       </div>
