@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './css/CodeWindow.css';
 import Package from './Package';
-
+import CodeMirror from './CodeMirror';
 
 export default class CodeWindow extends React.Component {
    render(){
@@ -21,10 +21,16 @@ export default class CodeWindow extends React.Component {
                     </nav>
                 </div>
                 <div className={styles['code']}>
-                    <p>코드 위치</p>
+                    <p>코드 위치      </p>
+                    <CodeMirror /> 
+
+
                 </div>
                 <div className={styles['result']}>
                     <p>코드 결과창</p>
+
+
+
                 </div>
 
             </div>

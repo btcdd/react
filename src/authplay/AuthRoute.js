@@ -1,8 +1,11 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 function AuthRoute({ authenticated, component: Component, render, ...rest }) {
-
+  useEffect(()=>{
+    console.log("AuthRoute  authenticated>>>>>",authenticated);
+  });
   return (
     <Route  
       {...rest}

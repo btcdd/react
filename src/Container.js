@@ -58,4 +58,3 @@ export default class Container extends React.Component {
       .catch(err => console.error(err));
    }
 }
-

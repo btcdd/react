@@ -16,11 +16,19 @@ function LoginForm({ authenticated, login, location }) {
   const [birth, setBirth] = useState("")
   const [tempKey, setTempKey] = useState("")
   
+  useEffect( () => {
+  
+    if(authenticated == null){
+      sessionStorage.setItem("authenticated",authenticated);
+      console.log("LoginForm sessionStorage>>>",sessionStorage.getItem("authenticated"));
+    }  
+ });
+
   
   const handleClick = () => {
     try {
       const query = queryString.parse(location.state.from.search);
-      // console.log("query>>>>",query);
+
       let UserDB={
           name : name,
           birth : birth,

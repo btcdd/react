@@ -4,6 +4,7 @@ export function signIn(resp) {
   let user;
   if(resp.result == "ok"){
     user = true;
+    sessionStorage.setItem("authenticated",user);
   }else if(resp.result =="delete"){
     alert("삭제된 문제");
     user = false;

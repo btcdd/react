@@ -13,7 +13,7 @@ import LoginForm from './authplay/LoginForm';
 import FinishPage from './authplay/FinishPage';
 import Home from './Home';
 
-function CodeTree(){
+function CodeTree({history}){
    const [user, setUser] = useState(null);
    const authenticated = user;
 
@@ -21,14 +21,12 @@ function CodeTree(){
       setUser(signIn(resp))
    }
    useEffect( () => {
-      console.log(user);
-      console.log("authenticated>>>",authenticated);
+      console.log("sessionStorage>>>",sessionStorage.getItem("authenticated"));
    });
 
 
    return (
       <div className={styles.CodeTree}>
-
             <Route
                   path="/"
                   exact
@@ -36,8 +34,8 @@ function CodeTree(){
                   />
          <Switch>
             <AuthRoute 
-                  authenticated={authenticated}
-                  path="/codingtest"               
+                  authenticated={sessionStorage.getItem("authenticated")}
+                  path="/codingtest"                
                   render={props => <Container  user={user}
                   {...props}/>}
                />             
@@ -59,6 +57,3 @@ function CodeTree(){
    );
 }
 export default CodeTree;
-
- 
-
