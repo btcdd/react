@@ -3,13 +3,13 @@
     width: 20vw;
     height: 96vh;
     background-color: #283D39;
+    overflow-y: scroll;
 }
 
 .problem-title {
     float: inline-start;
     width: 100%;
     height: 5%;
-    margin: 0 4%;
     font-weight: bold;
 }
 
@@ -18,6 +18,7 @@
     color: #fff;
     text-shadow: 3px 2px 2px gray;
     font-size: 1.5rem;
+    margin: 5% 4%;
 }
 ul {
     padding: 0;
