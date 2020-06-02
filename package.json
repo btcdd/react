@@ -25,6 +25,7 @@
     "mysql": "^2.18.1",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
+    "react-ace-editor": "0.0.3",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "style-loader": "^1.2.1",
