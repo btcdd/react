@@ -4,3 +4,15 @@
     margin-right : 3%;
     font-size: 90%;
 }
+
+.title {
+    float: right;
+}
+
+.end-time {
+    float: right;
+}
+
+.start-time {
+    float: right;
+}

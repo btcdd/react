@@ -1,7 +1,7 @@
 li {
     padding: 0 10px;
     list-style: none;
-    margin: 8px 0;
+    margin: 0 0 8px 0;
     color: rgb(59, 59, 59);
 }
 
@@ -12,6 +12,17 @@ li {
     height: 10%;
     font-weight: bold;
 }
+.problem-index {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    color:#494949;
+}
+.subtitle {
+    height: 100%;
+    text-align: center;
+}
 
 .sub-problem-title:hover {
     background-color: #EFEEED;
@@ -20,10 +31,18 @@ li {
 .open {
     padding: 0 5%;
     background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+}
+
+.close {
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    height: 0;
+    overflow: hidden;
 }
 
 .problem {
-    
+    margin: auto;
 }
 
 p {
@@ -42,14 +61,7 @@ p {
     margin-top: 0
 }
 
-.problem-index {
-    width: 20%;
-    height: 100%;
-    padding: 5px 3px;
-    text-align: center;
-    margin-right: 10px;
-    color:#494949;
-}
+
 
 .division {
     width: 100%;
