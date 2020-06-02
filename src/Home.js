@@ -28,7 +28,6 @@ export default class Home extends React.Component {
       // console.log("this.state.userEmail>>",this.state.userEmail);
    }
    render(){
-
             
       return (
          <div className={styles.Home}>

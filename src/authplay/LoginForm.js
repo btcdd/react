@@ -30,7 +30,7 @@ function LoginForm({ authenticated, login, location }) {
       axios.post(`${API_URL}/${query.userEmail}/${query.problemNo}`,{
         headers: API_HEADERS,
         body: JSON.stringify(UserDB)
-      })
+      })  
       .then(resp =>resp.data.data)
       .then(resp => login(resp))
       .catch(err => console.error(err));

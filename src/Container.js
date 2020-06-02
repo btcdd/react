@@ -28,7 +28,7 @@ export default class Container extends React.Component {
          title : null,
          endTime : null,
          startTime : null,
-      }   
+      }
    }
    
    render(){
