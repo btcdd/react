@@ -27,16 +27,19 @@ export default class Problem extends React.Component {
                     <div className={this.state.showInfo ? styles['open'] : styles['close']}>
                         <div className={styles['contents']}>
                             <p className={styles['problem-contents-title']}>문제 내용</p>
+                            <br/>
                             <p className={styles['problem-contents']}>{this.props.contents}</p>
                         </div>
                         <hr className={styles['division']} />
                         <div className={styles['examInput']}>
                             <p className={styles['problem-examInput-title']}>입력 예제</p>
+                            <br/>
                             <p className={styles['problem-examInput']}>{this.props.examInput}</p>
                         </div>
                         <hr className={styles['division']} />
                         <div className={styles['examOutput']}>
                             <p className={styles['problem-examOutput-title']}>출력 예제</p>
+                            <br/>
                             <p className={styles['problem-examOutput']}>{this.props.examOutput}</p>
                         </div>                            
                     </div>

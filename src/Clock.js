@@ -16,9 +16,6 @@ export default class Clock extends React.Component {
 
       return (
          <div className={styles.Clock}>
-            <div className={styles['title']}>
-               <strong>{Month}</strong>월<strong>{Day}</strong>일 Coding Test 
-            </div>
             <div className={styles['start-time']}>
                <p>[시작 시간] <strong>{Hour} : {Minute}</strong></p>
             </div>

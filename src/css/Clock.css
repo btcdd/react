@@ -6,12 +6,9 @@
     height: 4vh;
 }
 
-.title {
-    float: right;
-}
-
 .end-time {
     float: right;
+    margin-right: 35vw;
 }
 
 .start-time {
