@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './css/CodeWindow.css';
-import Package from './Package';
+import PackageList from './PackageList';
 
 import AceEditor from "react-ace";
 
@@ -52,8 +52,15 @@ export default class CodeWindow extends React.Component {
         }else if(this.state.language == "csharp"){
             this.state.value = CSharp_Code;
         }
+        console.log("this.props.savePath>>>>>",this.props.savePath);
+        console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
+        
+        let savePathCodeArray = [];
+
+
 
       return (
+          
          <div className={styles['code-window']}>
             <div className={styles['navigator']}>
                 <p>navigator</p>
@@ -64,7 +71,12 @@ export default class CodeWindow extends React.Component {
                     <hr />
                     <nav>
                         <ul className={styles['problem-name']}>
-                            <Package />
+                            {this.props.savePath && this.props.savePath.map(savePathList => <PackageList
+                                key={savePathList.no}
+                                path={savePathList.packagePath}
+                                savePathCode = {this.props.savePathCode && this.props.savePathCode.filter( savePathCodeList=> savePathCodeList.subProblemNo == savePathList.subProblemNo )}
+                            />)}
+                            
                         </ul>
                     </nav>
                 </div>
