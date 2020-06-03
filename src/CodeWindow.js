@@ -1,9 +1,23 @@
 import React from 'react';
 import styles from './css/CodeWindow.css';
 import Package from './Package';
-import CodeMirror from './CodeMirror';
+
+import AceEditor from "react-ace";
+
+import "ace-builds/src-noconflict/mode-java";
+import "ace-builds/src-noconflict/mode-c_cpp";
+
+import "ace-builds/src-noconflict/theme-github";
+import "ace-builds/webpack-resolver"
 
 export default class CodeWindow extends React.Component {
+    constructor(){
+        super(...arguments);
+       
+        
+    }    
+
+
    render(){
       return (
          <div className={styles['code-window']}>
@@ -22,9 +36,25 @@ export default class CodeWindow extends React.Component {
                 </div>
                 <div className={styles['code']}>
                     <p>코드 위치      </p>
-                    <CodeMirror /> 
 
-
+                    <AceEditor
+                     placeholder="Placeholder Text"
+                    mode="python"
+                    theme="monokai"
+                    onLoad={this.onLoad}
+                    onChange={this.onChange}
+                    fontSize={24}
+                    showPrintMargin={true}
+                    showGutter={true}
+                    highlightActiveLine={true}
+                    value={``}
+                    setOptions={{
+                        enableBasicAutocompletion: true,
+                        enableLiveAutocompletion: true,
+                        enableSnippets: true,
+                        showLineNumbers: true,
+                        tabSize: 2,
+                        }}/>                    
                 </div>
                 <div className={styles['result']}>
                     <p>코드 결과창</p>
