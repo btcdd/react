@@ -11,6 +11,7 @@ li {
     width: 100%;
     height: 10%;
     font-weight: bold;
+    font-size: 1.3rem;
 }
 .problem-index {
     float: left;
@@ -20,6 +21,7 @@ li {
     color:#494949;
 }
 .subtitle {
+    width: 50%;
     height: 100%;
     text-align: center;
 }
@@ -32,6 +34,8 @@ li {
     padding: 0 5%;
     background-color: #FCFBF4;
     transition: all 0.05s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: lighter;
 }
 
 .close {
@@ -39,10 +43,6 @@ li {
     transition: all 0.05s ease-in-out;
     height: 0;
     overflow: hidden;
-}
-
-.problem {
-    margin: auto;
 }
 
 p {

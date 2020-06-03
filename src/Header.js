@@ -11,25 +11,25 @@ export default class Header extends React.Component {
                 </div>
                 <div className={styles['menu']}>
                     <div className={styles['dropdown']}>
-                        <button className={styles['dropbtn']}>File</button>
+                        <button className={styles['dropbtn']}>FILE</button>
                         <div className={styles['dropdown-content']}>
                             <a href="#">File</a>
                         </div>
                     </div>
                     <div className={styles['dropdown']}>
-                        <button className={styles['dropbtn']}>File</button>
+                        <button className={styles['dropbtn']}>EDIT</button>
                         <div className={styles['dropdown-content']}>
                             <a href="#">File</a>
                         </div>
                     </div>
                     <div className={styles['dropdown']}>
-                        <button className={styles['dropbtn']}>File</button>
+                        <button className={styles['dropbtn']}>RUN</button>
                         <div className={styles['dropdown-content']}>
                             <a href="#">File</a>
                         </div>
                     </div>
                     <div className={styles['dropdown']}>
-                        <button className={styles['dropbtn']}>File</button>
+                        <button className={styles['dropbtn']}>HELP</button>
                         <div className={styles['dropdown-content']}>
                             <a href="#">File</a>
                         </div>
