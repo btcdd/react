@@ -16,9 +16,15 @@ export default class Clock extends React.Component {
 
       return (
          <div className={styles.Clock}>
-            <strong>{Month}</strong>월<strong>{Day}</strong>일 Coding Test<br/>  
-            <p>[시작 시간] <strong>{Hour} : {Minute}</strong></p>
-            <Countdown date={this.props.endTime}/>
+            <div className={styles['title']}>
+               <strong>{Month}</strong>월<strong>{Day}</strong>일 Coding Test 
+            </div>
+            <div className={styles['start-time']}>
+               <p>[시작 시간] <strong>{Hour} : {Minute}</strong></p>
+            </div>
+            <div className={styles['end-time']}>
+               <Countdown date={this.props.endTime}/>
+            </div>            
          </div>
       );
    }
