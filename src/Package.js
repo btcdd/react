@@ -11,20 +11,22 @@ export default class Package extends React.Component {
       return (
          <div className={styles['Package']}>
                 <li>
-                    <img src={problem}/>prob1
-                        <ul className={styles['problem-package']}>
-                            <img src={package_s}/>prob1.prob1
+                    <img src={package_s}/>prob1
                         <ul className={styles['problem-file']}>
                             <li><img src={file}/>A.java</li>
                             <li><img src={file}/>B.java</li>
                             <li><img src={file}/>Main.java</li>
                         </ul>
-                    </ul>
+                </li>
+                <li>
+                    <img src={package_s}/>prob2
+                        <ul className={styles['problem-file']}>
+                            <li><img src={file}/>A.java</li>
+                            <li><img src={file}/>B.java</li>
+                            <li><img src={file}/>Main.java</li>
+                        </ul>
                 </li>
 
-                <li>
-                    <img src={problem}/>prob2
-                </li>
          </div>
             
       );
