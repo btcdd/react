@@ -19,6 +19,7 @@ function LoginForm({ authenticated, login, location }) {
   useEffect( () => {
   
     if(authenticated == null){
+      // 없어도 되나?? - 될듯
       sessionStorage.setItem("authenticated",authenticated);
       console.log("LoginForm sessionStorage>>>",sessionStorage.getItem("authenticated"));
     }  
@@ -50,7 +51,8 @@ function LoginForm({ authenticated, login, location }) {
   }
   
 
-  const { from } = location.state || { from: { pathname: "/" } }
+  const { from } = location.state || { from: { pathname: "/login" } }
+  // const { from } = location.state || { from: { pathname: "/" } }
   if (authenticated) return <Redirect to={from} />
 
   return (
