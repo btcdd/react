@@ -2,6 +2,8 @@
     float: left;
     width: 80%;
     height: 96vh;
+    resize: horizontal;
+    overflow: auto;
 }
 
 .navigator {
@@ -21,6 +23,9 @@
     width: 15%;
     height: 71%;
     margin: 10px 0;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    resize: horizontal;
 }
 
 .problem-explorer {
@@ -34,6 +39,9 @@
     background-color: #dfdfdf;
     width: 85%;
     height: 75%;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    resize: horizontal;
 }
 
 .result {
@@ -41,6 +49,8 @@
     background-color: rgb(179, 179, 179);
     width: 100%;
     height: 25%;
+    overflow: auto;
+    resize: both;
 }
 
 hr {

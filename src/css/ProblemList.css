@@ -4,6 +4,7 @@
     height: 96vh;
     background-color: #283D39;
     overflow-y: scroll;
+    resize: horizontal;
 }
 
 .problem-title {

@@ -35,8 +35,6 @@ export default class CodeWindow extends React.Component {
                     </nav>
                 </div>
                 <div className={styles['code']}>
-                    <p>코드 위치      </p>
-
                     <AceEditor
                     mode="python"
                     theme="monokai"
