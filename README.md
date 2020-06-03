@@ -33,4 +33,5 @@ css-loader에  CSS Module 설정 (webpack.config.js)
 8.
 개발 서버 실행 및 확인
 
+npm i -D webpack webpack-cli webpack-dev-server react react-dom @babel/core babel-loader @babel/preset-env @babel/preset-react style-loader css-loader ace-builds react-ace
 </pre>

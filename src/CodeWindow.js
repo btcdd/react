@@ -38,7 +38,6 @@ export default class CodeWindow extends React.Component {
                     <p>코드 위치      </p>
 
                     <AceEditor
-                     placeholder="Placeholder Text"
                     mode="python"
                     theme="monokai"
                     onLoad={this.onLoad}
