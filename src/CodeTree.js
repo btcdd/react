@@ -10,7 +10,7 @@ import { signIn } from './authplay/auth';
 
 import AuthRoute from './authplay/AuthRoute';
 import LoginForm from './authplay/LoginForm';
-import FinishPage from './authplay/FinishPage';
+import ErrorPage from './authplay/ErrorPage';
 import Home from './Home';
 
 function CodeTree({history}){
@@ -43,7 +43,7 @@ function CodeTree({history}){
                      authenticatedHomeURL ? <Home />
                      :
                      (
-                     <FinishPage authenticated={authenticatedHomeURL}
+                     <ErrorPage authenticated={authenticatedHomeURL}
                       pathAccess = {pathAccess} {...props}/>)}
                   />
          <Switch>
@@ -59,10 +59,10 @@ function CodeTree({history}){
                      login={login} {...props} />
                   )}
                />
-            <Route
+            {/* <Route
                path="/FinishPage"
                component = {FinishPage}
-            />
+            /> */}
          </Switch>
       </div>
    );
