@@ -15,13 +15,22 @@ import Home from './Home';
 
 function CodeTree({history}){
    const [user, setUser] = useState(null);
+// ===================================================
+   const [userEmail,setUserEmail] = useState(null);
+   const pathAccess = (resp) => {
+      setUserEmail(signIn(resp))
+   }
+   const authenticatedHomeURL = userEmail;
+   
+ // ===================================================
    const authenticated = user;
-
+   
    const login = (resp) => {
       setUser(signIn(resp))
    }
    useEffect( () => {
-      console.log("sessionStorage>>>",sessionStorage.getItem("authenticated"));
+      console.log("authenticatedHomeURL>>>>",authenticatedHomeURL);
+      // console.log("sessionStorage>>>",sessionStorage.getItem("authenticated"));
    });
 
 
@@ -30,14 +39,18 @@ function CodeTree({history}){
             <Route
                   path="/"
                   exact
-                  component = {Home}
+                  render = {props =>  
+                     authenticatedHomeURL ? <Home />
+                     :
+                     (
+                     <FinishPage authenticated={authenticatedHomeURL}
+                      pathAccess = {pathAccess} {...props}/>)}
                   />
          <Switch>
             <AuthRoute 
                   authenticated={sessionStorage.getItem("authenticated")}
                   path="/codingtest"                
-                  render={props => <Container  user={user}
-                  {...props}/>}
+                  render={props => <Container {...props}/>}
                />             
             <Route
                path="/login"
@@ -48,12 +61,16 @@ function CodeTree({history}){
                />
             <Route
                path="/FinishPage"
-               render={
-                  props => <FinishPage {...props}/>
-               }
+               component = {FinishPage}
             />
          </Switch>
       </div>
    );
 }
 export default CodeTree;
+{/* <AuthRoute 
+authenticated={sessionStorage.getItem("authenticated")}
+path="/codingtest"                
+render={props => <Container  user={user}
+{...props}/>}
+/>              */}

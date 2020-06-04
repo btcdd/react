@@ -1,45 +1,16 @@
 import React from 'react';
+
 import styles from './css/Home.css';
-import axios from 'axios';
-import queryString from 'query-string';
 
-
-const API_URL = 'http://localhost:8088/compiletest/api/codetree';
-const API_HEADERS={
-   'Content-Type' : 'application/json'
-}
 export default class Home extends React.Component {
    constructor({match,location,history}){
       super(...arguments);
-      console.log("location>>>>",location);
-      console.log("match>>>>",match);
-      console.log("history>>>>",history);
-      console.log("props>>>>",this.props);
       
-      let query = queryString.parse(location.search); 
-      if(query.userEmail == ""){
-         query.userEmail = "=";
-      }
 
-      this.state = {
-         userEmail : query.userEmail,
-         auth : false
-
-      }
-      
-      console.log("query>>",query);
-      console.log("query.userEmail>>",query.userEmail);
-      // console.log("match>>",match);
-      // console.log("location>>",location);
-      // console.log("history>>",history);
-      // console.log("this.state.userEmail>>",this.state.userEmail);
    }
    render(){
-      // console.log("this.state.auth>>>>",this.state.auth);
-      // const a = this.state.auth;
-      
       return (
-         <div>
+         <div className={styles['Home']}>
             <p>홈화면</p>
          </div>
          
@@ -48,13 +19,69 @@ export default class Home extends React.Component {
    }
 
    componentDidMount(){ 
-      axios.post(`${API_URL}/${this.state.userEmail}.`,{
-         headers: API_HEADERS
-      })
-      .then(resp => resp.data.data)
-      .then(resp => console.log(resp))
 
-      .catch(err => console.error(err));
+      
    }
 
  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState, useEffect } from "react"
+// import { Redirect, Route } from "react-router-dom"
+// import styles from './css/Home.css';
+// import axios from 'axios';
+// import queryString from 'query-string';
+// import Container from "./Container";
+
+
+// const API_URL = 'http://localhost:8088/compiletest/api/codetree';
+// const API_HEADERS={
+//    'Content-Type' : 'application/json'
+// }
+
+// function Home({authenticated,pathAccess,location,render}){
+   
+//    useEffect( () => {
+      
+//       console.log("authenticated>>>",authenticated)
+    
+//       let query = queryString.parse(location.search); 
+//       if(query.userEmail == ""){
+//          query.userEmail = "=";
+//       }
+//       console.log("query>>",query.userEmail);
+//       axios.post(`${API_URL}/${query.userEmail}.`,{
+//          headers: API_HEADERS
+//       })
+//       .then(resp => resp.data.data)
+//       .then(resp => pathAccess(resp))
+//       .catch(err => console.error(err));
+      
+//    });
+
+
+//    return(
+//       <div>
+//       <p>Home</p>
+//       </div>
+      
+         
+      
+      
+//    );
+      
+// }
+// export default Home
+
