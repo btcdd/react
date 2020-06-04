@@ -1,0 +1,32 @@
+.MyList{
+    float: left;
+    background-color: #E7E7E7;
+    width: 200px;
+    height: 130px;
+    border-radius: 10px;
+    margin: 15px 20px;
+    padding: 8px 15px 15px 15px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+}
+.problem-no{
+    float: left;
+    width: 22%;
+    text-align: center;
+    border: 1px #7A8B9B;
+    color: #FCFBF4;
+    border-radius: 15px;
+    background-color: #7A8B9B; 
+    padding: 2px 9px;
+    margin-top: 7px;
+}
+.problem-nickName{
+    float: right;
+    margin-top: 45px;
+}
+.problem-kind{
+    float: right;
+    margin-top: 45px;
+    margin-right: 10px;
+}
