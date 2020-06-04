@@ -57,7 +57,6 @@ export default class CodeWindow extends React.Component {
         
 
       return (
-          
          <div className={styles['code-window']}>
             <div className={styles['navigator']}>
                 <p>navigator</p>
