@@ -29,7 +29,7 @@ export default class Home extends React.Component {
       return (
          <div className={styles['Home']}>
             <p>홈화면</p>
-            <MyStorage saveList={this.state.saveList}/>    
+            <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail}/>    
          </div>
          
 

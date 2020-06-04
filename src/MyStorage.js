@@ -7,10 +7,16 @@ export default class MyStorage extends React.Component {
         
        return (
         <div className={styles['MyStorage']}>
-            <p>저장 리스트</p>
-            {this.props.saveList&&this.props.saveList.map( (list) => <MyList
-                key = {list.no}
-            />)}
+
+                {this.props.saveList&&this.props.saveList.map( (list) => <MyList
+                    key = {list.no}
+                    saveNo = {list.no}
+                    kind = {list.kind}
+                    nickName= {list.nickname}
+                    title = {list.title}
+                    problemNo = {list.problemNo}
+                    userEmail = {this.props.userEmail}
+                />)}
         </div>
              
        );
