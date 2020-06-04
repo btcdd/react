@@ -17,9 +17,13 @@ export default class CodeWindow extends React.Component {
            language : "java",
            mode : "monokai",
            value : null,
-           fontSize : 20
-       }
-       
+           jValue : "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}",
+           jsValue: "",
+           cValue: "",
+           cppValue : "",
+           csValue : "",
+           fontSize : 15
+       };
     }    
     onSelectModeChanged(event){
         this.setState({
@@ -34,6 +38,12 @@ export default class CodeWindow extends React.Component {
     onFontSizeChanged(event){
         this.setState({
             fontSize : event.target.value
+        });
+    }
+    
+    onValueChanged() {
+        this.setState({
+
         });
     }
 
@@ -58,8 +68,8 @@ export default class CodeWindow extends React.Component {
         }else if(this.state.language == "csharp"){
             this.state.value = CSharp_Code;
         }
-        console.log("this.props.savePath>>>>>",this.props.savePath);
-        console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
+        // console.log("this.props.savePath>>>>>",this.props.savePath);
+        // console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
 
       return (
         <div className={styles.CodeWindow}>
@@ -109,6 +119,7 @@ export default class CodeWindow extends React.Component {
                     <div className={styles['code']}>
                                             
                         <AceEditor
+                        name="UNIQUE_ID_OF_DIV"
                         height="100%"
                         width="auto"
                         mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
@@ -117,7 +128,7 @@ export default class CodeWindow extends React.Component {
                         showPrintMargin={true}
                         showGutter={true}
                         highlightActiveLine={true}
-                        value={`${this.state.value}`}
+                        value={`${this.state.value}`}      
                         setOptions={{
                             enableBasicAutocompletion : true,
                             enableLiveAutocompletion: true,
