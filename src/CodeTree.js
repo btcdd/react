@@ -10,34 +10,48 @@ import { signIn } from './authplay/auth';
 
 import AuthRoute from './authplay/AuthRoute';
 import LoginForm from './authplay/LoginForm';
-import FinishPage from './authplay/FinishPage';
+import ErrorPage from './authplay/ErrorPage';
 import Home from './Home';
 
 function CodeTree({history}){
    const [user, setUser] = useState(null);
+// ===================================================
+   const [userEmail,setUserEmail] = useState(null);
+   const pathAccess = (resp) => {
+      setUserEmail(signIn(resp))
+   }
+   const authenticatedHomeURL = userEmail;
+   
+ // ===================================================
    const authenticated = user;
-
+   
    const login = (resp) => {
       setUser(signIn(resp))
    }
    useEffect( () => {
-      console.log("sessionStorage>>>",sessionStorage.getItem("authenticated"));
+      console.log("authenticatedHomeURL>>>>",authenticatedHomeURL);
+      // console.log("sessionStorage>>>",sessionStorage.getItem("authenticated"));
    });
 
 
    return (
       <div className={styles.CodeTree}>
-            <Route
-                  path="/"
-                  exact
-                  component = {Home}
-                  />
-         <Switch>
+     
+         <Switch>  
+         <Route
+            path="/"
+            exact
+            render = {props =>  
+            authenticatedHomeURL ? <Home {...props}/>
+               :
+               (
+               <ErrorPage authenticated={authenticatedHomeURL}
+                  pathAccess = {pathAccess} {...props}/>)}
+               />                 
             <AuthRoute 
                   authenticated={sessionStorage.getItem("authenticated")}
                   path="/codingtest"                
-                  render={props => <Container  user={user}
-                  {...props}/>}
+                  render={props => <Container {...props}/>}
                />             
             <Route
                path="/login"
@@ -46,12 +60,7 @@ function CodeTree({history}){
                      login={login} {...props} />
                   )}
                />
-            <Route
-               path="/FinishPage"
-               render={
-                  props => <FinishPage {...props}/>
-               }
-            />
+               <Route component={ErrorPage} />
          </Switch>
       </div>
    );
