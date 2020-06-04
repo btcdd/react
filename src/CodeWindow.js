@@ -55,9 +55,6 @@ export default class CodeWindow extends React.Component {
         console.log("this.props.savePath>>>>>",this.props.savePath);
         console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
         
-        let savePathCodeArray = [];
-
-
 
       return (
           

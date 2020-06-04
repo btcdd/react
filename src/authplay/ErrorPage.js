@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Redirect, Route } from "react-router-dom"
-import styles from '../css/FinishPage.css';
+import styles from '../css/ErrorPage.css';
 import axios from 'axios';
 import queryString from 'query-string';
 
@@ -11,7 +11,7 @@ const API_HEADERS={
    'Content-Type' : 'application/json'
 }
 
-function FinishPage({authenticated,pathAccess,location}){
+function ErrorPage({authenticated,pathAccess,location}){
    
    useEffect( () => {
       
@@ -33,11 +33,11 @@ function FinishPage({authenticated,pathAccess,location}){
 
 
    return(
-      <div className={styles['FinishPage']}>
+      <div className={styles['ErrorPage']}>
          <p>오류 페이지</p>
       </div>
    );
       
 }
-export default FinishPage
+export default ErrorPage
 
