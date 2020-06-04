@@ -16,7 +16,8 @@ export default class CodeWindow extends React.Component {
        this.state = {
            language : "java",
            mode : "monokai",
-           value : null
+           value : null,
+           fontSize : 20
        }
        
     }    
@@ -28,6 +29,11 @@ export default class CodeWindow extends React.Component {
     onSelectThemeChanged(event){
         this.setState({
             mode : event.target.value
+        });
+    }
+    onFontSizeChanged(event){
+        this.setState({
+            fontSize : event.target.value
         });
     }
 
@@ -54,12 +60,10 @@ export default class CodeWindow extends React.Component {
         }
         console.log("this.props.savePath>>>>>",this.props.savePath);
         console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
-        
 
       return (
         <div className={styles.CodeWindow}>
             <div className={styles['navigator']}>
-                <p>navigator</p>
                 <div className={styles['language-selector']}>
                     <select value={this.state.language} onChange={this.onSelectModeChanged.bind(this)}>
                         <option value='java'>Java</option>
@@ -81,6 +85,9 @@ export default class CodeWindow extends React.Component {
                         <option value='solarized_light'>solarized_light</option>
                         <option value='terminal'>terminal</option>
                     </select>
+                </div>
+                <div className={styles['font-size']}>
+                    <input type='text' value={this.state.fontSize} onChange={this.onFontSizeChanged.bind(this)} />
                 </div>
             </div>
             <div className={styles['code-mirror']}>
@@ -106,7 +113,7 @@ export default class CodeWindow extends React.Component {
                         width="auto"
                         mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
                         theme={this.state.mode}
-                        fontSize={15}
+                        fontSize={parseInt(this.state.fontSize)}
                         showPrintMargin={true}
                         showGutter={true}
                         highlightActiveLine={true}
