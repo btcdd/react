@@ -60,6 +60,28 @@ export default class CodeWindow extends React.Component {
         <div className={styles.CodeWindow}>
             <div className={styles['navigator']}>
                 <p>navigator</p>
+                <div className={styles['language-selector']}>
+                    <select value={this.state.language} onChange={this.onSelectModeChanged.bind(this)}>
+                        <option value='java'>Java</option>
+                        <option value='javascript'>JavaScript</option>
+                        <option value='python'>Python</option>
+                        <option value='cpp'>C++</option>
+                        <option value="csharp">C#</option>
+                        <option value='c'>C</option>
+                    </select>
+                </div>
+                <div className={styles['theme-selector']}>
+                    <select value={this.state.mode} onChange={this.onSelectThemeChanged.bind(this)}>
+                        <option value='monokai'>monokai</option>
+                        <option value='github'>github</option>
+                        <option value='tomorrow'>tomorrow</option>
+                        <option value='kuroir'>kuroir</option>
+                        <option value='twilight'>twilight</option>
+                        <option value='solarized_dark'>solarized_dark</option>
+                        <option value='solarized_light'>solarized_light</option>
+                        <option value='terminal'>terminal</option>
+                    </select>
+                </div>
             </div>
             <div className={styles['code-mirror']}>
                 <div className={styles['cover']}>
@@ -78,30 +100,13 @@ export default class CodeWindow extends React.Component {
                         </nav>
                     </div>
                     <div className={styles['code']}>
-                        <select value={this.state.language} onChange={this.onSelectModeChanged.bind(this)}>
-                            <option value='java'>Java</option>
-                            <option value='javascript'>JavaScript</option>
-                            <option value='python'>Python</option>
-                            <option value='cpp'>C++</option>
-                            <option value="csharp">C#</option>
-                            <option value='c'>C</option>
-                        </select>
-                        <select value={this.state.mode} onChange={this.onSelectThemeChanged.bind(this)}>
-                            <option value='monokai'>monokai</option>
-                            <option value='github'>github</option>
-                            <option value='tomorrow'>tomorrow</option>
-                            <option value='kuroir'>kuroir</option>
-                            <option value='twilight'>twilight</option>
-                            <option value='solarized_dark'>solarized_dark</option>
-                            <option value='solarized_light'>solarized_light</option>
-                            <option value='terminal'>terminal</option>
-                        </select>                    
+                                            
                         <AceEditor
                         height="100%"
                         width="auto"
                         mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
                         theme={this.state.mode}
-                        fontSize={24}
+                        fontSize={15}
                         showPrintMargin={true}
                         showGutter={true}
                         highlightActiveLine={true}
