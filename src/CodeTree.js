@@ -36,17 +36,18 @@ function CodeTree({history}){
 
    return (
       <div className={styles.CodeTree}>
-            <Route
-                  path="/"
-                  exact
-                  render = {props =>  
-                     authenticatedHomeURL ? <Home />
-                     :
-                     (
-                     <ErrorPage authenticated={authenticatedHomeURL}
-                      pathAccess = {pathAccess} {...props}/>)}
-                  />
-         <Switch>
+     
+         <Switch>  
+         <Route
+            path="/"
+            exact
+            render = {props =>  
+            authenticatedHomeURL ? <Home {...props}/>
+               :
+               (
+               <ErrorPage authenticated={authenticatedHomeURL}
+                  pathAccess = {pathAccess} {...props}/>)}
+               />                 
             <AuthRoute 
                   authenticated={sessionStorage.getItem("authenticated")}
                   path="/codingtest"                
@@ -59,18 +60,9 @@ function CodeTree({history}){
                      login={login} {...props} />
                   )}
                />
-            {/* <Route
-               path="/FinishPage"
-               component = {FinishPage}
-            /> */}
+               <Route component={ErrorPage} />
          </Switch>
       </div>
    );
 }
 export default CodeTree;
-{/* <AuthRoute 
-authenticated={sessionStorage.getItem("authenticated")}
-path="/codingtest"                
-render={props => <Container  user={user}
-{...props}/>}
-/>              */}
