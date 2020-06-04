@@ -54,3 +54,15 @@ hr {
     width: 100%;
     height: 75%;
 }
+
+.language-selector {
+    float: right;
+}
+
+.theme-selector {
+    float: right;
+}
+
+.font-size {
+    float: right;
+}

@@ -16,9 +16,14 @@ export default class CodeWindow extends React.Component {
        this.state = {
            language : "java",
            mode : "monokai",
-           value : null
-       }
-       
+           value : null,
+           jValue : "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}",
+           jsValue: "",
+           cValue: "",
+           cppValue : "",
+           csValue : "",
+           fontSize : 15
+       };
     }    
     onSelectModeChanged(event){
         this.setState({
@@ -28,6 +33,17 @@ export default class CodeWindow extends React.Component {
     onSelectThemeChanged(event){
         this.setState({
             mode : event.target.value
+        });
+    }
+    onFontSizeChanged(event){
+        this.setState({
+            fontSize : event.target.value
+        });
+    }
+    
+    onValueChanged() {
+        this.setState({
+
         });
     }
 
@@ -52,14 +68,12 @@ export default class CodeWindow extends React.Component {
         }else if(this.state.language == "csharp"){
             this.state.value = CSharp_Code;
         }
-        console.log("this.props.savePath>>>>>",this.props.savePath);
-        console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
-        
+        // console.log("this.props.savePath>>>>>",this.props.savePath);
+        // console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
 
       return (
         <div className={styles.CodeWindow}>
             <div className={styles['navigator']}>
-                <p>navigator</p>
                 <div className={styles['language-selector']}>
                     <select value={this.state.language} onChange={this.onSelectModeChanged.bind(this)}>
                         <option value='java'>Java</option>
@@ -82,6 +96,9 @@ export default class CodeWindow extends React.Component {
                         <option value='terminal'>terminal</option>
                     </select>
                 </div>
+                <div className={styles['font-size']}>
+                    <input type='text' value={this.state.fontSize} onChange={this.onFontSizeChanged.bind(this)} />
+                </div>
             </div>
             <div className={styles['code-mirror']}>
                 <div className={styles['cover']}>
@@ -102,15 +119,16 @@ export default class CodeWindow extends React.Component {
                     <div className={styles['code']}>
                                             
                         <AceEditor
+                        name="UNIQUE_ID_OF_DIV"
                         height="100%"
                         width="auto"
                         mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
                         theme={this.state.mode}
-                        fontSize={15}
+                        fontSize={parseInt(this.state.fontSize)}
                         showPrintMargin={true}
                         showGutter={true}
                         highlightActiveLine={true}
-                        value={`${this.state.value}`}
+                        value={`${this.state.value}`}      
                         setOptions={{
                             enableBasicAutocompletion : true,
                             enableLiveAutocompletion: true,
