@@ -50,8 +50,8 @@
     font-size: small;
 }
 .result-header p {
-    margin-top: 0;
-    margin-left: 2%;
+    float: left;
+    margin-top: 0.2%;
 }
 .result-body {
     height: 90%;
@@ -59,6 +59,19 @@
     overflow-x: scroll;
     background-color: #000;
     color: #63de00;
+}
+.cmd-img {
+    margin-top: 0.2%;
+    float: left;
+    margin-left: 1%;
+    margin-right: -1%;
+}
+.cmd-title {
+    float: left;
+    margin-top: 0;
+    margin-left: 2%;
+    font-size: xx-small;
+
 }
 .result-body p {
     line-height: 1%; 

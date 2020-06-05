@@ -213,7 +213,7 @@ export default class CodeWindow extends React.Component {
                     </div>
                     <div className={styles['result']}>
                         <div className={styles['result-header']}>
-                            <p><img src={cmd} width="13px"/>명령 프롬프트</p>
+                        <img className={styles['cmd-img']} src={cmd} width="13px"/><p className={styles['cmd-title']}>명령 프롬프트</p>
                         </div>
                         <div className={styles['result-body']}>
                             <p>CodeForest Windows [Version 10.0.18363.836]</p>
