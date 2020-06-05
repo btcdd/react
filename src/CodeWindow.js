@@ -9,7 +9,8 @@ import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-csharp";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/webpack-resolver"
-import { Ace } from 'ace-builds';
+
+import cmd from './img/cmd.png';
 
 export default class CodeWindow extends React.Component {
     constructor() {
@@ -211,10 +212,16 @@ export default class CodeWindow extends React.Component {
                         </div>
                     </div>
                     <div className={styles['result']}>
-                        <p>코드 결과창</p>
-
-
-
+                        <div className={styles['result-header']}>
+                            <p><img src={cmd} width="13px"/>명령 프롬프트</p>
+                        </div>
+                        <div className={styles['result-body']}>
+                            <p>CodeForest Windows [Version 10.0.18363.836]</p>
+                            <br></br>
+                            <p>(c) 2020 CodeForest Corporation. All rights reserved.</p>
+                            <br></br>
+                            <p>> <span>result~~</span></p><p class={styles['under-bar']}>_</p>
+                        </div>
                     </div>
 
                 </div>
