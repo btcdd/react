@@ -26,9 +26,16 @@ export default class Home extends React.Component {
          userEmail : query.userEmail,
          saveList : null,
          savePath : null,
-         savePathCode : null
+         savePathCode : null,
+         problemNo : null
       }   
       
+   }
+
+   onNotifyProblemNoChange(problemNo){
+      this.setState({
+         problemNo : problemNo
+      })
    }
 
    onNotifySaveNoChange(savePath,savePathCode){
@@ -45,8 +52,8 @@ export default class Home extends React.Component {
             
                <Header/>
             
-               <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}/>   
-               <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/>
+               <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />   
+               <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} />
 
          </div>
          
