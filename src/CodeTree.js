@@ -63,7 +63,6 @@ function CodeTree({history}){
                      login={login} {...props} />
                   )}
                />
-
                <Route component={ErrorPage} />
          </Switch>
       </div>

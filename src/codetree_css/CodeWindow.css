@@ -1,0 +1,48 @@
+.code-window {
+    float: left;
+    width: 80%;
+    height: 96vh;
+}
+
+.navigator {
+    background-color: #E8E9E7;
+    width: 100%;
+    height: 4%;
+}
+
+.code-mirror {
+    width: 100%;
+    height: 96%;
+}
+
+.file {
+    float: left;
+    background-color: #fff;
+    width: 15%;
+    height: 71%;
+    margin: 10px 0;
+}
+
+.problem-explorer {
+    color: #997000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.code {
+    float: left;
+    background-color: #dfdfdf;
+    width: 85%;
+    height: 75%;
+}
+
+.result {
+    clear: left;
+    background-color: rgb(179, 179, 179);
+    width: 100%;
+    height: 25%;
+}
+
+hr {
+    margin: 0
+}
