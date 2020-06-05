@@ -1,14 +1,17 @@
 import React from 'react';
-import styles from './css/CodeWindow.css';
+import styles from '../codetree_css/CodeWindow.css';
 import PackageList from './PackageList';
 
 import AceEditor from "react-ace";
+
+
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-c_cpp";
 import "ace-builds/src-noconflict/mode-csharp";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/webpack-resolver"
+
 
 export default class CodeWindow extends React.Component {
     constructor(){
@@ -51,13 +54,16 @@ export default class CodeWindow extends React.Component {
         }else if(this.state.language == "csharp"){
             this.state.value = CSharp_Code;
         }
-        console.log("this.props.savePath>>>>>",this.props.savePath);
-        console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
+        console.log("CodeWindow this.props.savePath>>>>>",this.props.savePath);
+        console.log("CodeWindow this.props.savePathCode>>>>>",this.props.savePathCode);
         
 
       return (
           
          <div className={styles['code-window']}>
+             
+             
+
             <div className={styles['navigator']}>
                 <p>navigator</p>
             </div>

@@ -21,7 +21,7 @@ function ErrorPage({authenticated,pathAccess,location}){
       if(query.userEmail == ""){
          query.userEmail = "=";
       }
-      console.log("query>>",query.userEmail);
+      console.log("ErrorPage query>>",query.userEmail);
       axios.post(`${API_URL}/${query.userEmail}.`,{
          headers: API_HEADERS
       })

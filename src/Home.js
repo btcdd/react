@@ -1,10 +1,14 @@
 import React from 'react';
 
 import styles from './css/Home.css';
+
 import queryString from 'query-string';
 import axios from 'axios';
 
-import MyStorage from './MyStorage';
+
+import Header from './codetree/Header';
+import CodeWindow from './codetree/CodeWindow';
+import MyStorage from './codetree/MyStorage';
 
 const API_URL = 'http://localhost:8088/compiletest/api/codetree/list';
 const API_HEADERS={
@@ -20,16 +24,30 @@ export default class Home extends React.Component {
       }
       this.state = {
          userEmail : query.userEmail,
-         saveList : null
+         saveList : null,
+         savePath : null,
+         savePathCode : null
       }   
       
    }
+
+   onNotifySaveNoChange(savePath,savePathCode){
+      this.setState({
+         savePath : savePath,
+         savePathCode : savePathCode
+      })
+   }
+
+
    render(){
-      console.log("userEmail>>>>",this.state.userEmail);
       return (
          <div className={styles['Home']}>
-            <p>홈화면</p>
-            <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail}/>    
+            
+               <Header/>
+            
+               <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}/>   
+               <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/>
+
          </div>
          
 
