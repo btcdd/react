@@ -7,7 +7,7 @@ export function signIn(resp) {
     sessionStorage.setItem("authenticated",user);
     // sessionStorage.setItem("authenticatedHomeURL",user);
   }else if(resp.result =="delete"){
-    alert("삭제된 문제");
+    alert("삭제된 문제 또는 없는 문제");
     user = false;
   }else if(resp.result =="empty"){
     alert("이름,생일 필수!!");
