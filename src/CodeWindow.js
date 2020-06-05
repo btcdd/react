@@ -16,8 +16,15 @@ export default class CodeWindow extends React.Component {
        this.state = {
            language : "java",
            mode : "monokai",
-           value : null
-       }
+           value : null,
+           jValue : "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}",
+           jsValue: "",
+           cValue: "",
+           cppValue : "",
+           csValue : "",
+           fontSize : 15
+       };
+
     }    
     onSelectModeChanged(event){
         this.setState({
@@ -27,6 +34,17 @@ export default class CodeWindow extends React.Component {
     onSelectThemeChanged(event){
         this.setState({
             mode : event.target.value
+        });
+    }
+    onFontSizeChanged(event){
+        this.setState({
+            fontSize : event.target.value
+        });
+    }
+    
+    onValueChanged() {
+        this.setState({
+
         });
     }
 
@@ -51,32 +69,13 @@ export default class CodeWindow extends React.Component {
         }else if(this.state.language == "csharp"){
             this.state.value = CSharp_Code;
         }
-        console.log("this.props.savePath>>>>>",this.props.savePath);
-        console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
-        
+        // console.log("this.props.savePath>>>>>",this.props.savePath);
+        // console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
 
       return (
-          
-         <div className={styles['code-window']}>
+        <div className={styles.CodeWindow}>
             <div className={styles['navigator']}>
-                <p>navigator</p>
-            </div>
-            <div className={styles['code-mirror']}>
-                <div className={styles['file']}>
-                    <div className={styles['problem-explorer']}>PROBLEM EXPLORER</div>
-                    <hr />
-                    <nav>
-                        <ul className={styles['problem-name']}>
-                            {this.props.savePath && this.props.savePath.map(savePathList => <PackageList
-                                key={savePathList.no}
-                                path={savePathList.packagePath}
-                                savePathCode = {this.props.savePathCode && this.props.savePathCode.filter( savePathCodeList=> savePathCodeList.subProblemNo == savePathList.subProblemNo )}
-                            />)}
-                            
-                        </ul>
-                    </nav>
-                </div>
-                <div className={styles['code']}>
+                <div className={styles['language-selector']}>
                     <select value={this.state.language} onChange={this.onSelectModeChanged.bind(this)}>
                         <option value='java'>Java</option>
                         <option value='javascript'>JavaScript</option>
@@ -85,6 +84,8 @@ export default class CodeWindow extends React.Component {
                         <option value="csharp">C#</option>
                         <option value='c'>C</option>
                     </select>
+                </div>
+                <div className={styles['theme-selector']}>
                     <select value={this.state.mode} onChange={this.onSelectThemeChanged.bind(this)}>
                         <option value='monokai'>monokai</option>
                         <option value='github'>github</option>
@@ -94,23 +95,50 @@ export default class CodeWindow extends React.Component {
                         <option value='solarized_dark'>solarized_dark</option>
                         <option value='solarized_light'>solarized_light</option>
                         <option value='terminal'>terminal</option>
-                    </select>                    
-                    <AceEditor
-                    mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
-                    theme={this.state.mode}
-                    fontSize={24}
-                    showPrintMargin={true}
-                    showGutter={true}
-                    highlightActiveLine={true}
-                    value={`${this.state.value}`}
-                    setOptions={{
-                        enableBasicAutocompletion : true,
-                        enableLiveAutocompletion: true,
-                        enableSnippets: true,
-                        showLineNumbers: true,
-                        tabSize: 2
-                        }}
-                    />                    
+                    </select>
+                </div>
+                <div className={styles['font-size']}>
+                    <input type='text' value={this.state.fontSize} onChange={this.onFontSizeChanged.bind(this)} />
+                </div>
+            </div>
+            <div className={styles['code-mirror']}>
+                <div className={styles['cover']}>
+                    <div className={styles['file']}>
+                        <div className={styles['problem-explorer']}>PROBLEM EXPLORER</div>
+                        <hr />
+                        <nav>
+                            <ul className={styles['problem-name']}>
+                                {this.props.savePath && this.props.savePath.map(savePathList => <PackageList
+                                    key={savePathList.no}
+                                    path={savePathList.packagePath}
+                                    savePathCode = {this.props.savePathCode && this.props.savePathCode.filter( savePathCodeList=> savePathCodeList.subProblemNo == savePathList.subProblemNo )}
+                                />)}
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <div className={styles['code']}>
+                                            
+                        <AceEditor
+                        name="UNIQUE_ID_OF_DIV"
+                        height="100%"
+                        width="auto"
+                        mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
+                        theme={this.state.mode}
+                        fontSize={parseInt(this.state.fontSize)}
+                        showPrintMargin={true}
+                        showGutter={true}
+                        highlightActiveLine={true}
+                        value={`${this.state.value}`}      
+                        setOptions={{
+                            enableBasicAutocompletion : true,
+                            enableLiveAutocompletion: true,
+                            enableSnippets: true,
+                            showLineNumbers: true,
+                            tabSize: 2
+                            }}
+                        />                    
+                    </div>
                 </div>
                 <div className={styles['result']}>
                     <p>코드 결과창</p>
