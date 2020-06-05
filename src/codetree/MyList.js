@@ -17,6 +17,8 @@ export default class MyList extends React.Component {
         
       }    
     mouseClickEvent(){
+        //problemNo를 올리는 위치
+        this.props['onNotifyProblemNoChange'](this.props.problemNo);
 
         axios.post(`${API_URL}/${this.props.userEmail}/${this.props.saveNo}`,{
             headers: API_HEADERS

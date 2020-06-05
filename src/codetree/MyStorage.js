@@ -16,6 +16,7 @@ export default class MyStorage extends React.Component {
                     problemNo = {list.problemNo}
                     userEmail = {this.props.userEmail}
                     onNotifySaveNoChange = {this.props.onNotifySaveNoChange}
+                    onNotifyProblemNoChange = {this.props.onNotifyProblemNoChange}
                 />)}
         </div>
              
