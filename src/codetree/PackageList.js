@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../codetree_css/PackageList.css';
+import styles from './codetree_css/PackageList.css';
 
 import package_s from '../img/package.png';
 import FileList from './FileList';

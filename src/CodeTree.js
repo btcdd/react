@@ -10,9 +10,10 @@ import { signIn } from './authplay/auth';
 
 import AuthRoute from './authplay/AuthRoute';
 import LoginForm from './authplay/LoginForm';
-import ErrorPage from './authplay/ErrorPage';
-import Home from './Home';
-
+import CodeTreeErrorPage from './authplay/CodeTreeErrorPage';
+import CodeTrainingErrorPage from './authplay/CodeTrainingErrorPage'
+import Home from './codetree/Home';
+import CodeTraining from './codetraining/CodeTraining'
 
 
 
@@ -48,14 +49,24 @@ function CodeTree({history}){
             authenticatedHomeURL ? <Home {...props}/>
                :
                (
-               <ErrorPage authenticated={authenticatedHomeURL}
+               <CodeTreeErrorPage authenticated={authenticatedHomeURL}
                   pathAccess = {pathAccess} {...props}/>)}
                />                 
             <AuthRoute 
                   authenticated={sessionStorage.getItem("authenticated")}
                   path="/codingtest"                
                   render={props => <Container {...props}/>}
-               />             
+               />
+         <Route
+            path="/codingtraining"
+            exact
+            render = {props =>  
+            authenticatedHomeURL ? <CodeTraining {...props}/>
+               :
+               (
+               <CodeTrainingErrorPage authenticated={authenticatedHomeURL}
+                  pathAccess = {pathAccess} {...props}/>)}
+               />                            
             <Route
                path="/login"
                render={props => (
@@ -63,7 +74,7 @@ function CodeTree({history}){
                      login={login} {...props} />
                   )}
                />
-               <Route component={ErrorPage} />
+               <Route component={CodeTreeErrorPage} />
          </Switch>
       </div>
    );

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../codetree_css/CodeWindow.css';
+import styles from './codetree_css/CodeWindow.css';
 import PackageList from './PackageList';
 
 import AceEditor from "react-ace";

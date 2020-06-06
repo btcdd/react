@@ -1,7 +1,6 @@
 import React from 'react';
 
-import styles from '../codetree_css/Header.css';
-
+import styles from './codetree_css/Header.css';
 export default class Header extends React.Component {
     render(){
        return (
