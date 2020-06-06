@@ -43,7 +43,10 @@ export default class CodeWindow extends React.Component {
         
         // console.log("CodeWindow  this.props.saveList>>>>>>",this.props.saveList); // => problemNo만 가져오면 된다
         // console.log("CodeWindow  this.props.problemNo>>>>>>",this.props.problemNo);
-
+        if(this.props.problemNo ===null){
+            alert("저장리스트를 선택하세요");
+            return;
+        }
 
         let saveDB={
             code : this.state.value,

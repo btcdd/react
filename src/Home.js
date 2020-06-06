@@ -27,9 +27,16 @@ export default class Home extends React.Component {
          saveList : null,
          savePath : null,
          savePathCode : null,
-         problemNo : null
+         problemNo : null,
+         showInfo:false
       }   
       
+   }
+
+   handToggle(event) {
+      this.setState({
+         showInfo: !this.state.showInfo
+      })
    }
 
    onNotifyProblemNoChange(problemNo){
@@ -51,8 +58,11 @@ export default class Home extends React.Component {
          <div className={styles['Home']}>
             
                <Header/>
-            
-               <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />   
+
+               <button onClick={this.handToggle.bind(this)}>저장 리스트</button>
+               <div className={this.state.showInfo ? styles['open'] : styles['close']}>
+                  <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />   
+               </div>               
                <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} />
 
          </div>
