@@ -1,14 +1,14 @@
 import React from 'react';
 
-import styles from './css/Home.css';
+import styles from './codetree_css/Home.css';
 
 import queryString from 'query-string';
 import axios from 'axios';
 
 
-import Header from './codetree/Header';
-import CodeWindow from './codetree/CodeWindow';
-import MyStorage from './codetree/MyStorage';
+import Header from './Header';
+import CodeWindow from './CodeWindow';
+import MyStorage from './MyStorage';
 
 const API_URL = 'http://localhost:8088/compiletest/api/codetree/list';
 const API_HEADERS={
