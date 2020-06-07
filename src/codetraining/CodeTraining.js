@@ -6,6 +6,9 @@ import queryString from 'query-string';
 
 import Header from './Header';
 
+
+
+
 export default class CodeTraining extends React.Component {
    constructor({match,location,history}){
       super(...arguments);
@@ -33,6 +36,6 @@ export default class CodeTraining extends React.Component {
 
       );
    }
-   
+
 
  }
