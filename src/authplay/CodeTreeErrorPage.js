@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Redirect, Route } from "react-router-dom"
-import styles from '../css/ErrorPage.css';
+
+import styles from '../css/CodeTreeErrorPage.css';
 import axios from 'axios';
 import queryString from 'query-string';
 
@@ -11,7 +11,7 @@ const API_HEADERS={
    'Content-Type' : 'application/json'
 }
 
-function ErrorPage({authenticated,pathAccess,location}){
+function CodeTreeErrorPage({authenticated,pathAccess,location}){
    
    useEffect( () => {
       
@@ -33,10 +33,10 @@ function ErrorPage({authenticated,pathAccess,location}){
    return(
       
       <div className={styles['ErrorPage']}>
-         {authenticated === null ? <p>조금만 기다려주세요...</p> : <p>오류 페이지</p>  }
+         {authenticated === true ? <p>조금만 기다려주세요...</p> : <p>오류 페이지</p>  }
       </div>
    );
       
 }
-export default ErrorPage
+export default CodeTreeErrorPage
 

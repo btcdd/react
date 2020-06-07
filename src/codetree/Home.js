@@ -1,14 +1,14 @@
 import React from 'react';
 
-import styles from './css/Home.css';
+import styles from './codetree_css/Home.css';
 
 import queryString from 'query-string';
 import axios from 'axios';
 
 
-import Header from './codetree/Header';
-import CodeWindow from './codetree/CodeWindow';
-import MyStorage from './codetree/MyStorage';
+import Header from './Header';
+import CodeWindow from './CodeWindow';
+import MyStorage from './MyStorage';
 
 const API_URL = 'http://localhost:8088/compiletest/api/codetree/list';
 const API_HEADERS={
@@ -26,9 +26,23 @@ export default class Home extends React.Component {
          userEmail : query.userEmail,
          saveList : null,
          savePath : null,
-         savePathCode : null
+         savePathCode : null,
+         problemNo : null,
+         showInfo:false
       }   
       
+   }
+
+   handToggle(event) {
+      this.setState({
+         showInfo: !this.state.showInfo
+      })
+   }
+
+   onNotifyProblemNoChange(problemNo){
+      this.setState({
+         problemNo : problemNo
+      })
    }
 
    onNotifySaveNoChange(savePath,savePathCode){
@@ -44,9 +58,12 @@ export default class Home extends React.Component {
          <div className={styles['Home']}>
             
                <Header/>
-            
-               <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}/>   
-               <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/>
+
+               <button onClick={this.handToggle.bind(this)}>저장 리스트</button>
+               <div className={this.state.showInfo ? styles['open'] : styles['close']}>
+                  <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />   
+               </div>               
+               <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} />
 
          </div>
          

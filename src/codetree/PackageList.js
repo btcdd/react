@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from '../codetree_css/PackageList.css';
+import styles from './codetree_css/PackageList.css';
 
 import package_s from '../img/package.png';
 import FileList from './FileList';
@@ -15,13 +15,13 @@ export default class PackageList extends React.Component {
                 <li>
                     <img src={package_s}/>{path[4]}   
                     {this.props.savePathCode.map( savePathCodeList => <FileList 
+
                         key = {savePathCodeList.no}
                         fileName = {savePathCodeList.fileName}
                         language = {savePathCodeList.language}
                         code = {savePathCodeList.code}
                         onNotifySaveCodeChange = {this.props.onNotifySaveCodeChange}
-                    /> )}
-                     
+                    /> )}                     
                 </li>
 
          </div>

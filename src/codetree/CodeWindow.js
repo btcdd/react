@@ -1,10 +1,11 @@
 import React from 'react';
-import styles from '../codetree_css/CodeWindow.css';
+import styles from './codetree_css/CodeWindow.css';
 import PackageList from './PackageList';
 
 import AceEditor from "react-ace";
 
 
+import axios from 'axios';
 
 import "ace-builds/src-noconflict/mode-java";
 import "ace-builds/src-noconflict/mode-c_cpp";
@@ -13,6 +14,11 @@ import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/webpack-resolver"
 
 
+const API_URL = 'http://localhost:8088/compiletest/api/codetree/list/save';
+const API_HEADERS={
+   'Content-Type' : 'application/json'
+}
+
 export default class CodeWindow extends React.Component {
     constructor(){
        super(...arguments);
@@ -20,8 +26,46 @@ export default class CodeWindow extends React.Component {
            language : "java",
            mode : "monokai",
            value : "Hello Forest!"
+           
        }
     }    
+
+
+ 
+
+    onClickButton(){
+        // console.log("CodeWindow  this.state.value>>>>>>",this.state.value);
+        // console.log("CodeWindow  this.state.language>>>>>>",this.state.language);
+        // console.log("CodeWindow  this.props.savePath>>>>>",this.props.savePath);
+        // console.log("CodeWindow  this.props.savePathCode>>>>>",this.props.savePathCode);
+        
+        // console.log("CodeWindow  this.props.userEmail>>>>>>",this.props.userEmail);
+        
+        // console.log("CodeWindow  this.props.saveList>>>>>>",this.props.saveList); // => problemNo만 가져오면 된다
+        // console.log("CodeWindow  this.props.problemNo>>>>>>",this.props.problemNo);
+        if(this.props.problemNo ===null){
+            alert("저장리스트를 선택하세요");
+            return;
+        }
+
+        let saveDB={
+            code : this.state.value,
+            language : this.state.language,
+            savePathVoList : this.props.savePath,
+            codeVoList : this.props.savePathCode
+        }
+
+        axios.post(`${API_URL}/${this.props.userEmail}/${this.props.problemNo}`,{
+            headers: API_HEADERS,
+            body:JSON.stringify(saveDB)
+         })
+         .then(resp => resp.data.data)
+         .then(resp => console.log(resp))
+         .catch(err => console.error(err)); 
+
+    }
+
+    
 
 
     onNotifySaveCodeChange(code){
@@ -29,9 +73,6 @@ export default class CodeWindow extends React.Component {
             value : code
         })
     }
-
-
-
 
 
     onSelectModeChanged(event){
@@ -47,7 +88,7 @@ export default class CodeWindow extends React.Component {
 
     render(){
 
-      console.log("CodeWindow this.state.value>>>>>",this.state.value);
+    //   console.log("CodeWindow this.state.value>>>>>",this.state.value);
 
       return (
           
@@ -64,13 +105,13 @@ export default class CodeWindow extends React.Component {
                     <hr />
                     <nav>
                         <ul className={styles['problem-name']}>
+
                             {this.props.savePath && this.props.savePath.map(savePathList => <PackageList
                                 key={savePathList.no}
                                 path={savePathList.packagePath}
                                 savePathCode = {this.props.savePathCode && this.props.savePathCode.filter( savePathCodeList=> savePathCodeList.subProblemNo == savePathList.subProblemNo )}
                                 onNotifySaveCodeChange = {this.onNotifySaveCodeChange.bind(this)}
-                            />)}
-                            
+                            />)}                            
                         </ul>
                     </nav>
                 </div>
@@ -92,7 +133,8 @@ export default class CodeWindow extends React.Component {
                         <option value='solarized_dark'>solarized_dark</option>
                         <option value='solarized_light'>solarized_light</option>
                         <option value='terminal'>terminal</option>
-                    </select>                    
+                    </select>  
+                    
                     <AceEditor
                     mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
                     theme={this.state.mode}
@@ -100,6 +142,11 @@ export default class CodeWindow extends React.Component {
                     showPrintMargin={true}
                     showGutter={true}
                     highlightActiveLine={true}
+                    onChange={newValue => {
+                        this.setState({
+                            value : newValue
+                        });
+                    }}
                     value={`${this.state.value}`}
                     setOptions={{
                         enableBasicAutocompletion : true,
@@ -110,9 +157,10 @@ export default class CodeWindow extends React.Component {
                         }}
                     />                    
                 </div>
+                <button onClick={this.onClickButton.bind(this)}>저장</button>
+
                 <div className={styles['result']}>
                     <p>코드 결과창</p>
-
 
 
                 </div>

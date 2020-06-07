@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import styles from '../codetree_css/MyList.css';
+import styles from './codetree_css/MyList.css';
 import axios from 'axios';
 
 
@@ -17,6 +17,8 @@ export default class MyList extends React.Component {
         
       }    
     mouseClickEvent(){
+        //problemNo를 올리는 위치
+        this.props['onNotifyProblemNoChange'](this.props.problemNo);
 
         axios.post(`${API_URL}/${this.props.userEmail}/${this.props.saveNo}`,{
             headers: API_HEADERS
@@ -30,9 +32,9 @@ export default class MyList extends React.Component {
     render(){
         return (
             
-            <div className={styles['MyList']}>
+            <div className={styles['MyList']} onClick={this.mouseClickEvent.bind(this)}>
                 <p>saveNo : {this.props.saveNo}</p>
-                <div className={styles['problem-no']}  onClick={this.mouseClickEvent.bind(this)} >
+                <div className={styles['problem-no']}   >
                     문제 번호 : {this.props.problemNo}
                 </div>
                 <div className={styles['problem-title']}>
