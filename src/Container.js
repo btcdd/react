@@ -49,15 +49,15 @@ export default class Container extends React.Component {
          headers: API_HEADERS
       })
       .then(resp => resp.data.data)
-      .then(resp => console.log(resp))
-      // .then(resp => this.setState({
-      //    title : resp.problemVo.title,
-      //    lists : resp.list,
-      //    endTime : resp.problemVo.endTime,
-      //    startTime : resp.problemVo.startTime,
-      //    savePath : resp.savePathVoList,
-      //    savePathCode : resp.codeVoList
-      // }))
+      // .then(resp => console.log(resp))
+      .then(resp => this.setState({
+         title : resp.problemVo.title,
+         lists : resp.list,
+         endTime : resp.problemVo.endTime,
+         startTime : resp.problemVo.startTime,
+         savePath : resp.savePathVoList,
+         savePathCode : resp.codeVoList
+      }))
       .catch(err => console.error(err));
    }
 }
