@@ -9,7 +9,7 @@ export default class PackageList extends React.Component {
     
    render(){
       const path = this.props.path.split("/");
-      console.log("PackageList    savePathCode>>>",this.props.savePathCode);
+    //   console.log("PackageList    savePathCode>>>",this.props.savePathCode);
       return (
          <div className={styles['problem-packageList']}>
                 <li>
@@ -19,6 +19,7 @@ export default class PackageList extends React.Component {
                         fileName = {savePathCodeList.fileName}
                         language = {savePathCodeList.language}
                         code = {savePathCodeList.code}
+                        onNotifySaveCodeChange = {this.props.onNotifySaveCodeChange}
                     /> )}
                      
                 </li>

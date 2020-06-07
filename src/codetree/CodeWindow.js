@@ -19,9 +19,21 @@ export default class CodeWindow extends React.Component {
        this.state = {
            language : "java",
            mode : "monokai",
-           value : null
+           value : "Hello Forest!"
        }
     }    
+
+
+    onNotifySaveCodeChange(code){
+        this.setState({
+            value : code
+        })
+    }
+
+
+
+
+
     onSelectModeChanged(event){
         this.setState({
             language : event.target.value
@@ -34,29 +46,8 @@ export default class CodeWindow extends React.Component {
     }
 
     render(){
-        const java_Code = "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}";        
-        const javaScript_Code = "var str = 'Hello CodeForest';\nconsole.log(str);";
-        const C_Code = "#include <stdio.h>\n\nint main() {\n\n\tprintf('Hello CodeForest!');\n\n\treturn 0;\n}";
-        const CPlus_Code = "#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n\tcout << 'Hello CodeForest!' << endl;\n\n\treturn 0;\n}";
-        const CSharp_Code ="using System;\n\nclass HelloWorld {\n\n\tstatic void Main() {\n\n\t\tConsole.WriteLine('Hello CodeForest');\n\t}\n}";
-        const python_Code ="print('Hello CodeForest!')";
-    
-        if(this.state.language == "java"){
-            this.state.value = java_Code;
-        }else if(this.state.language == "javascript"){
-            this.state.value = javaScript_Code;
-        }else if(this.state.language == "c" ){
-            this.state.value = C_Code;
-        }else if(this.state.language == "cpp"){
-            this.state.value = CPlus_Code;
-        }else if(this.state.language == "python"){
-            this.state.value = python_Code;
-        }else if(this.state.language == "csharp"){
-            this.state.value = CSharp_Code;
-        }
-        console.log("CodeWindow this.props.savePath>>>>>",this.props.savePath);
-        console.log("CodeWindow this.props.savePathCode>>>>>",this.props.savePathCode);
-        
+
+      console.log("CodeWindow this.state.value>>>>>",this.state.value);
 
       return (
           
@@ -77,6 +68,7 @@ export default class CodeWindow extends React.Component {
                                 key={savePathList.no}
                                 path={savePathList.packagePath}
                                 savePathCode = {this.props.savePathCode && this.props.savePathCode.filter( savePathCodeList=> savePathCodeList.subProblemNo == savePathList.subProblemNo )}
+                                onNotifySaveCodeChange = {this.onNotifySaveCodeChange.bind(this)}
                             />)}
                             
                         </ul>

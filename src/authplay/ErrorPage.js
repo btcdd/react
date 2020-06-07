@@ -15,7 +15,7 @@ function ErrorPage({authenticated,pathAccess,location}){
    
    useEffect( () => {
       
-      console.log("authenticated>>>",authenticated)
+      console.log("ErrorPage this.props authenticated>>>",authenticated)
     
       let query = queryString.parse(location.search); 
       if(query.userEmail == ""){
@@ -29,12 +29,11 @@ function ErrorPage({authenticated,pathAccess,location}){
       .then(resp => pathAccess(resp))
       .catch(err => console.error(err));
       
-   },[]);
-
-
+   });
    return(
+      
       <div className={styles['ErrorPage']}>
-         <p>오류 페이지</p>
+         {authenticated === null ? <p>조금만 기다려주세요...</p> : <p>오류 페이지</p>  }
       </div>
    );
       
