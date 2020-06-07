@@ -6,7 +6,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 
-const API_URL = 'http://localhost:8088/compiletest/api/training/auth';
+const API_URL = 'http://localhost:8088/compiletest/api/codingtest';
 const API_HEADERS={
    'Content-Type' : 'application/json'
 } 
@@ -36,7 +36,7 @@ function LoginForm({ authenticated, login, location }) {
           tempKey : tempKey
       };
       
-      axios.post(`${API_URL}/${query.userEmail}/${query.problemNo}`,{
+      axios.post(`${API_URL}/auth/${query.userEmail}/${query.problemNo}`,{
         headers: API_HEADERS,
         body: JSON.stringify(UserDB)
       })

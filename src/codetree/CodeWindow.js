@@ -14,7 +14,7 @@ import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/webpack-resolver"
 
 
-const API_URL = 'http://localhost:8088/compiletest/api/codetree/list/save';
+const API_URL = 'http://localhost:8088/compiletest/api/codetree';
 const API_HEADERS={
    'Content-Type' : 'application/json'
 }
@@ -55,7 +55,7 @@ export default class CodeWindow extends React.Component {
             codeVoList : this.props.savePathCode
         }
 
-        axios.post(`${API_URL}/${this.props.userEmail}/${this.props.problemNo}`,{
+        axios.post(`${API_URL}/list/save/${this.props.userEmail}/${this.props.problemNo}`,{
             headers: API_HEADERS,
             body:JSON.stringify(saveDB)
          })

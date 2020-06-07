@@ -4,6 +4,8 @@ import styles from './codetraining_css/CodeTraining.css';
 
 import queryString from 'query-string';
 
+import Header from './Header';
+
 export default class CodeTraining extends React.Component {
    constructor({match,location,history}){
       super(...arguments);
@@ -17,15 +19,20 @@ export default class CodeTraining extends React.Component {
    render(){
 
       return (
-         <div className={styles['CodeTraining']}>
-            코드 트레이닝 페이지
+            <div className={styles['CodeTraining']}>
+               <Header />
+               
+               {/* <ProblemList title={this.state.title} lists={this.state.lists}/>
+               <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/> */}
 
-         </div>
+            </div>
+         
+
+
          
 
       );
    }
-
-
+   
 
  }
