@@ -4,6 +4,21 @@
     height: 96vh;
 }
 
+.open {
+    padding: 0 5%;
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.close {
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    height: 0;
+    overflow: hidden;
+}
+
 .navigator {
     background-color: #E8E9E7;
     width: 100%;

@@ -209,8 +209,11 @@ export default class CodeWindow extends React.Component {
                                     tabSize: 2,
                                     dragEnabled: true,
                                     spellcheck: true,
-                                    wrapBehavioursEnabled: true
+                                    wrapBehavioursEnabled: true,
+                                    hScrollBarAlwaysVisible: true,
+                                    vScrollBarAlwaysVisible: true
                                 }}
+                                
                             />
                        
                     </div>

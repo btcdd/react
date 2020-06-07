@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './codetree_css/CodeWindow.css';
 import PackageList from './PackageList';
+import MyStorage from './MyStorage';
 
 import AceEditor from "react-ace";
 
@@ -13,6 +14,7 @@ import "ace-builds/src-noconflict/mode-csharp";
 import "ace-builds/src-noconflict/theme-github";
 import "ace-builds/webpack-resolver"
 
+import cmd from '../img/cmd.png';
 
 const API_URL = 'http://localhost:8088/compiletest/api/codetree/list/save';
 const API_HEADERS={
@@ -25,13 +27,15 @@ export default class CodeWindow extends React.Component {
        this.state = {
            language : "java",
            mode : "monokai",
-           value : "Hello Forest!"
+           value : "Hello Forest!",
+           saveList : null,
+           savePath : null,
+           savePathCode : null,
+           problemNo : null,
+           showInfo:false
            
        }
-    }    
-
-
- 
+    }     
 
     onClickButton(){
         // console.log("CodeWindow  this.state.value>>>>>>",this.state.value);
@@ -65,15 +69,11 @@ export default class CodeWindow extends React.Component {
 
     }
 
-    
-
-
     onNotifySaveCodeChange(code){
         this.setState({
             value : code
         })
     }
-
 
     onSelectModeChanged(event){
         this.setState({
@@ -85,6 +85,20 @@ export default class CodeWindow extends React.Component {
             mode : event.target.value
         });
     }
+
+    handToggle(event) {
+        this.setState({
+           showInfo: !this.state.showInfo
+        })
+     }
+  
+     onNotifyProblemNoChange(problemNo){
+        this.props['onNotifyProblemNoChange'](problemNo);
+     }
+  
+     onNotifySaveNoChange(savePath,savePathCode){
+        this.props['onNotifySaveNoChange'](savePath,savePathCode);
+     }
 
     render(){
 
@@ -98,6 +112,8 @@ export default class CodeWindow extends React.Component {
 
             <div className={styles['navigator']}>
                 <p>navigator</p>
+                <button onClick={this.handToggle.bind(this)}>저장 리스트</button>
+                <button onClick={this.onClickButton.bind(this)}>저장</button>
             </div>
             <div className={styles['code-mirror']}>
                 <div className={styles['file']}>
@@ -136,6 +152,8 @@ export default class CodeWindow extends React.Component {
                     </select>  
                     
                     <AceEditor
+                    height="100%"
+                    width="100%"
                     mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
                     theme={this.state.mode}
                     fontSize={24}
@@ -149,23 +167,36 @@ export default class CodeWindow extends React.Component {
                     }}
                     value={`${this.state.value}`}
                     setOptions={{
-                        enableBasicAutocompletion : true,
-                        enableLiveAutocompletion: true,
-                        enableSnippets: true,
-                        showLineNumbers: true,
-                        tabSize: 2
+                        enableBasicAutocompletion: true,
+                            enableLiveAutocompletion: true,
+                            enableSnippets: true,
+                            showLineNumbers: true,
+                            tabSize: 2,
+                            dragEnabled: true,
+                            spellcheck: true,
+                            wrapBehavioursEnabled: true,
+                            hScrollBarAlwaysVisible: true,
+                            vScrollBarAlwaysVisible: true
                         }}
                     />                    
                 </div>
-                <button onClick={this.onClickButton.bind(this)}>저장</button>
 
                 <div className={styles['result']}>
-                    <p>코드 결과창</p>
-
-
+                    <div className={styles['result-header']}>
+                    <img className={styles['cmd-img']} src={cmd} width="13px"/><p className={styles['cmd-title']}>명령 프롬프트</p>
+                    </div>
+                    <div className={styles['result-body']}>
+                        <p>CodeForest Windows [Version 10.0.18363.836]</p>
+                        <br></br>
+                        <p>(c) 2020 CodeForest Corporation. All rights reserved.</p>
+                        <br></br>
+                        <p>> <span>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋzzzzzzㅋㅋ</span></p><p>></p><p className={styles['under-bar']}>_</p>
+                    </div>
                 </div>
-
             </div>
+            <div className={this.state.showInfo ? styles['open'] : styles['close']}>
+                <MyStorage saveList={this.props.saveList} userEmail={this.props.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />   
+            </div>     
          </div>            
       );
    }

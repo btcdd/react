@@ -5,6 +5,8 @@
     background-color: #283D39;
     overflow-y: scroll;
     resize: horizontal;
+    max-width: 200%;
+    min-width: 0px;
 }
 
 .problem-title {

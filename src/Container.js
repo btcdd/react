@@ -36,13 +36,13 @@ export default class Container extends React.Component {
    render(){
       return (
          <Fragment>
-               <div >
-                  <Header startTime={this.state.startTime} endTime={this.state.endTime} />
-               </div>
-               <div className={styles['container']}>
-                  <ProblemList title={this.state.title} lists={this.state.lists}/>
-                  <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/>
-               </div>    
+            <div >
+               <Header startTime={this.state.startTime} endTime={this.state.endTime} />
+            </div>
+            <div className={styles['container']}>
+               <ProblemList title={this.state.title} lists={this.state.lists}/>
+               <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/>
+            </div>    
          </Fragment>        
       );
    }
