@@ -188,15 +188,15 @@ export default class CodeWindow extends React.Component {
                                 </ul>
                             </nav>
                         </div>
-                        <div className={styles['code']}>
+                    
 
-                            <AceEditor
+                            <AceEditor                                
                                 height="100%"
-                                width="auto"
+                                width="100%"
                                 mode={(this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language}
                                 theme={this.state.mode}
                                 fontSize={parseInt(this.state.fontSize)}
-                                showPrintMargin={true}
+                                showPrintMargin={false}
                                 showGutter={true}
                                 highlightActiveLine={true}
                                 value={this.state.value}
@@ -206,10 +206,13 @@ export default class CodeWindow extends React.Component {
                                     enableLiveAutocompletion: true,
                                     enableSnippets: true,
                                     showLineNumbers: true,
-                                    tabSize: 2
+                                    tabSize: 2,
+                                    dragEnabled: true,
+                                    spellcheck: true,
+                                    wrapBehavioursEnabled: true
                                 }}
                             />
-                        </div>
+                       
                     </div>
                     <div className={styles['result']}>
                         <div className={styles['result-header']}>
