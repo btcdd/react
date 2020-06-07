@@ -209,8 +209,11 @@ export default class CodeWindow extends React.Component {
                                     tabSize: 2,
                                     dragEnabled: true,
                                     spellcheck: true,
-                                    wrapBehavioursEnabled: true
+                                    wrapBehavioursEnabled: true,
+                                    hScrollBarAlwaysVisible: true,
+                                    vScrollBarAlwaysVisible: true
                                 }}
+                                
                             />
                        
                     </div>
@@ -223,7 +226,7 @@ export default class CodeWindow extends React.Component {
                             <br></br>
                             <p>(c) 2020 CodeForest Corporation. All rights reserved.</p>
                             <br></br>
-                            <p>> <span>result~~</span></p><p className={styles['under-bar']}>_</p>
+                            <p>> <span>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋzzzzzzㅋㅋ</span></p><p>></p><p className={styles['under-bar']}>_</p>
                         </div>
                     </div>
 

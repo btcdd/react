@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import styles from './codetree_css/Home.css';
 
@@ -8,7 +8,6 @@ import axios from 'axios';
 
 import Header from './Header';
 import CodeWindow from './CodeWindow';
-import MyStorage from './MyStorage';
 
 const API_URL = 'http://localhost:8088/compiletest/api/codetree';
 const API_HEADERS={
@@ -33,12 +32,6 @@ export default class Home extends React.Component {
       
    }
 
-   handToggle(event) {
-      this.setState({
-         showInfo: !this.state.showInfo
-      })
-   }
-
    onNotifyProblemNoChange(problemNo){
       this.setState({
          problemNo : problemNo
@@ -55,18 +48,12 @@ export default class Home extends React.Component {
 
    render(){
       return (
-         <div className={styles['Home']}>
-            
-               <Header/>
-
-               <button onClick={this.handToggle.bind(this)}>저장 리스트</button>
-               <div className={this.state.showInfo ? styles['open'] : styles['close']}>
-                  <MyStorage saveList={this.state.saveList} userEmail={this.state.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />   
-               </div>               
-               <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} />
-
-         </div>
-         
+         <Fragment>
+            <Header/>
+            <div className={styles['Home']}>             
+               <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} saveList={this.state.saveList} onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this) } onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this) } />
+            </div>
+         </Fragment>
 
       );
    }
