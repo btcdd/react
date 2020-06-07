@@ -43,7 +43,7 @@ function CodeTree({history}){
      
          <Switch>  
          <Route
-            path="/"
+            path="/codetree"
             exact
             render = {props =>  
             authenticatedHomeURL ? <Home {...props}/>

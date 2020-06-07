@@ -10,7 +10,7 @@ import Header from './Header';
 import CodeWindow from './CodeWindow';
 import MyStorage from './MyStorage';
 
-const API_URL = 'http://localhost:8088/compiletest/api/codetree/list';
+const API_URL = 'http://localhost:8088/compiletest/api/codetree';
 const API_HEADERS={
    'Content-Type' : 'application/json'
 }
@@ -72,7 +72,7 @@ export default class Home extends React.Component {
    }
 
    componentDidMount(){ 
-      axios.post(`${API_URL}/${this.state.userEmail}.`,{
+      axios.post(`${API_URL}/list/${this.state.userEmail}.`,{
          headers: API_HEADERS
       })
       .then(resp => resp.data.data)

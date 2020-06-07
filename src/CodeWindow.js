@@ -220,7 +220,7 @@ export default class CodeWindow extends React.Component {
                             <br></br>
                             <p>(c) 2020 CodeForest Corporation. All rights reserved.</p>
                             <br></br>
-                            <p>> <span>result~~</span></p><p class={styles['under-bar']}>_</p>
+                            <p>> <span>result~~</span></p><p className={styles['under-bar']}>_</p>
                         </div>
                     </div>
 
