@@ -7,7 +7,7 @@ import queryString from 'query-string';
 
 
 
-const API_URL = 'http://localhost:8088/compiletest/api/codetraining/training';
+const API_URL = 'http://localhost:8088/compiletest/api/codetraining';
 const API_HEADERS={
    'Content-Type' : 'application/json'
 }
@@ -18,7 +18,7 @@ function CodeTrainingErrorPage({authenticated,pathAccess,location}){
       
     let query = queryString.parse(location.search); 
       
-    axios.post(`${API_URL}/${query.userEmail}/${query.problemNo}`,{
+    axios.post(`${API_URL}/training/${query.userEmail}/${query.problemNo}`,{
         headers: API_HEADERS
      })
      .then(resp => resp.data.data)

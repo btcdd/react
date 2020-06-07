@@ -22,7 +22,7 @@ function CodeTreeErrorPage({authenticated,pathAccess,location}){
          query.userEmail = "=";
       }
       console.log("ErrorPage query>>",query.userEmail);
-      axios.post(`${API_URL}/${query.userEmail}.`,{
+      axios.post(`${API_URL}/auth/${query.userEmail}.`,{
          headers: API_HEADERS
       })
       .then(resp => resp.data.data)

@@ -46,10 +46,10 @@ export default class Countdown extends React.Component {
        this.stop();
    }
    stop(){
-      // alert('시험이 종료되었습니다.');
+      alert('시험이 종료되었습니다.');
       clearInterval(this.interval);
-      // window.close();
-      // window.location.href ="http://localhost:8088/compiletest/";
+      window.close();
+      window.location.href ="http://localhost:8088/compiletest/";
    
    }
 

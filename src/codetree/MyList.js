@@ -6,7 +6,7 @@ import axios from 'axios';
 
 
 
-const API_URL = 'http://localhost:8088/compiletest/api/codetree/list';
+const API_URL = 'http://localhost:8088/compiletest/api/codetree';
 const API_HEADERS={
    'Content-Type' : 'application/json'
 }
@@ -20,7 +20,7 @@ export default class MyList extends React.Component {
         //problemNo를 올리는 위치
         this.props['onNotifyProblemNoChange'](this.props.problemNo);
 
-        axios.post(`${API_URL}/${this.props.userEmail}/${this.props.saveNo}`,{
+        axios.post(`${API_URL}/list/${this.props.userEmail}/${this.props.saveNo}`,{
             headers: API_HEADERS
          })
          .then(resp => resp.data.data)
