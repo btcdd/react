@@ -12,13 +12,15 @@ import "ace-builds/webpack-resolver"
 
 import cmd from './img/cmd.png';
 
+
+
 export default class CodeWindow extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
             language: "java",
             mode: "monokai",
-            value: null,
+            value : "Hello Forest!",
             jValue: null,
             jsValue: null,
             cValue: null,
@@ -28,6 +30,7 @@ export default class CodeWindow extends React.Component {
             fontSize: 15
         };
     }
+
     onSelectModeChanged(event) {
         this.setState({
             language: event.target.value
@@ -44,105 +47,105 @@ export default class CodeWindow extends React.Component {
         });
     }
 
-    onValueChanged(newValue) {
-        if (this.state.language == "java") {
-            this.setState({
-                jValue: newValue,
-                value: newValue
-            });
-        } else if (this.state.language == "javascript") {
-            this.setState({
-                jsValue: newValue,
-                value: newValue
-            });
-        } else if (this.state.language == "c") {
-            this.setState({
-                cValue: newValue,
-                value: newValue
-            });
-        } else if (this.state.language == "cpp") {
-            this.setState({
-                cppValue: newValue,
-                value: newValue
-            });
-        } else if (this.state.language == "python") {
-            this.setState({
-                pyValue: newValue,
-                value: newValue
-            });
-        } else if (this.state.language == "csharp") {
-            this.setState({
-                csValue: newValue,
-                value: newValue
-            });
-        }
-    }
+    // onValueChanged(newValue) {
+    //     if (this.state.language == "java") {
+    //         this.setState({
+    //             jValue: newValue,
+    //             value: newValue
+    //         });
+    //     } else if (this.state.language == "javascript") {
+    //         this.setState({
+    //             jsValue: newValue,
+    //             value: newValue
+    //         });
+    //     } else if (this.state.language == "c") {
+    //         this.setState({
+    //             cValue: newValue,
+    //             value: newValue
+    //         });
+    //     } else if (this.state.language == "cpp") {
+    //         this.setState({
+    //             cppValue: newValue,
+    //             value: newValue
+    //         });
+    //     } else if (this.state.language == "python") {
+    //         this.setState({
+    //             pyValue: newValue,
+    //             value: newValue
+    //         });
+    //     } else if (this.state.language == "csharp") {
+    //         this.setState({
+    //             csValue: newValue,
+    //             value: newValue
+    //         });
+    //     }
+    // }
 
     render() {
-        const java_Code = "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}";
-        const javaScript_Code = "var str = 'Hello CodeForest';\nconsole.log(str);";
-        const C_Code = "#include <stdio.h>\n\nint main() {\n\n\tprintf('Hello CodeForest!');\n\n\treturn 0;\n}";
-        const CPlus_Code = "#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n\tcout << 'Hello CodeForest!' << endl;\n\n\treturn 0;\n}";
-        const CSharp_Code = "using System;\n\nclass HelloWorld {\n\n\tstatic void Main() {\n\n\t\tConsole.WriteLine('Hello CodeForest');\n\t}\n}";
-        const python_Code = "print('Hello CodeForest!')";
+        // const java_Code = "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}";
+        // const javaScript_Code = "var str = 'Hello CodeForest';\nconsole.log(str);";
+        // const C_Code = "#include <stdio.h>\n\nint main() {\n\n\tprintf('Hello CodeForest!');\n\n\treturn 0;\n}";
+        // const CPlus_Code = "#include <iostream>\n\nusing namespace std;\n\nint main()\n{\n\tcout << 'Hello CodeForest!' << endl;\n\n\treturn 0;\n}";
+        // const CSharp_Code = "using System;\n\nclass HelloWorld {\n\n\tstatic void Main() {\n\n\t\tConsole.WriteLine('Hello CodeForest');\n\t}\n}";
+        // const python_Code = "print('Hello CodeForest!')";
 
-        if (this.state.language == "java") {
-            if (this.state.jValue == null) {
-                this.state.jValue = java_Code;
-                this.state.value = this.state.jValue;
+        // if (this.state.language == "java") {
+        //     if (this.state.jValue == null) {
+        //         this.state.jValue = java_Code;
+        //         this.state.value = this.state.jValue;
 
-            }
-            else {
-                this.state.value = this.state.jValue;
-            }
-        } else if (this.state.language == "javascript") {
-            if (this.state.jsValue == null) {
-                this.state.jsValue = javaScript_Code;
-                this.state.value = this.state.jsValue;
+        //     }
+        //     else {
+        //         this.state.value = this.state.jValue;
+        //     }
+        // } else if (this.state.language == "javascript") {
+        //     if (this.state.jsValue == null) {
+        //         this.state.jsValue = javaScript_Code;
+        //         this.state.value = this.state.jsValue;
 
-            }
-            else {
-                this.state.value = this.state.jsValue;
-            }
-        } else if (this.state.language == "c") {
-            if (this.state.cValue == null) {
-                this.state.cValue = C_Code;
-                this.state.value = this.state.cValue;
+        //     }
+        //     else {
+        //         this.state.value = this.state.jsValue;
+        //     }
+        // } else if (this.state.language == "c") {
+        //     if (this.state.cValue == null) {
+        //         this.state.cValue = C_Code;
+        //         this.state.value = this.state.cValue;
 
-            }
-            else {
-                this.state.value = this.state.cValue;
-            }
-        } else if (this.state.language == "cpp") {
-            if (this.state.cppValue == null) {
-                this.state.cppValue = CPlus_Code;
-                this.state.value = this.state.cppValue;
+        //     }
+        //     else {
+        //         this.state.value = this.state.cValue;
+        //     }
+        // } else if (this.state.language == "cpp") {
+        //     if (this.state.cppValue == null) {
+        //         this.state.cppValue = CPlus_Code;
+        //         this.state.value = this.state.cppValue;
 
-            }
-            else {
-                this.state.value = this.state.cppValue;
-            }
-        } else if (this.state.language == "python") {
-            if (this.state.pyValue == null) {
-                this.state.pyValue = python_Code;
-                this.state.value = this.state.pyValue;
+        //     }
+        //     else {
+        //         this.state.value = this.state.cppValue;
+        //     }
+        // } else if (this.state.language == "python") {
+        //     if (this.state.pyValue == null) {
+        //         this.state.pyValue = python_Code;
+        //         this.state.value = this.state.pyValue;
 
-            }
-            else {
-                this.state.value = this.state.pyValue;
-            }
-        } else if (this.state.language == "csharp") {
-            if (this.state.csValue == null) {
-                this.state.csValue = CSharp_Code;
-                this.state.value = this.state.csValue;
+        //     }
+        //     else {
+        //         this.state.value = this.state.pyValue;
+        //     }
+        // } else if (this.state.language == "csharp") {
+        //     if (this.state.csValue == null) {
+        //         this.state.csValue = CSharp_Code;
+        //         this.state.value = this.state.csValue;
 
-            }
-            else {
-                this.state.value = this.state.csValue;
-            }
-        }
-        // console.log("this.props.savePath>>>>>",this.props.savePath);
-        // console.log("this.props.savePathCode>>>>>",this.props.savePathCode);
+        //     }
+        //     else {
+        //         this.state.value = this.state.csValue;
+        //     }
+        // }
+        console.log("this.props.lists>>>>>",this.props.lists);
+        
         return (
             <div className={styles.CodeWindow}>
                 <div className={styles['navigator']}>
@@ -166,7 +169,7 @@ export default class CodeWindow extends React.Component {
                             <option value='solarized_dark'>solarized_dark</option>
                             <option value='solarized_light'>solarized_light</option>
                             <option value='terminal'>terminal</option>
-                        </select>
+                        </select>  
                     </div>
                     <div className={styles['font-size']}>
                         <input type='text' value={this.state.fontSize} onChange={this.onFontSizeChanged.bind(this)} />
@@ -176,15 +179,14 @@ export default class CodeWindow extends React.Component {
                     <div className={styles['cover']}>
                         <div className={styles['file']}>
                             <div className={styles['problem-explorer']}>PROBLEM EXPLORER</div>
+                            
                             <hr />
                             <nav>
                                 <ul className={styles['problem-name']}>
-                                    {this.props.savePath && this.props.savePath.map(savePathList => <PackageList
-                                        key={savePathList.no}
-                                        path={savePathList.packagePath}
-                                        savePathCode={this.props.savePathCode && this.props.savePathCode.filter(savePathCodeList => savePathCodeList.subProblemNo == savePathList.subProblemNo)}
+                                    {this.props.lists && this.props.lists.map( (packagelists) => <PackageList
+                                        key={packagelists.no}
+                                        language={this.state.language}
                                     />)}
-
                                 </ul>
                             </nav>
                         </div>
@@ -193,14 +195,18 @@ export default class CodeWindow extends React.Component {
                             <AceEditor
                                 height="100%"
                                 width="auto"
-                                mode={(this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language}
+                                mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
                                 theme={this.state.mode}
                                 fontSize={parseInt(this.state.fontSize)}
                                 showPrintMargin={true}
                                 showGutter={true}
                                 highlightActiveLine={true}
-                                value={this.state.value}
-                                onChange={this.onValueChanged.bind(this)}
+                                value={`${this.state.value}`}
+                                onChange={newValue => {
+                                    this.setState({
+                                        value : newValue
+                                    });
+                                }}
                                 setOptions={{
                                     enableBasicAutocompletion: true,
                                     enableLiveAutocompletion: true,

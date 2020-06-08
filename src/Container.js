@@ -27,9 +27,9 @@ export default class Container extends React.Component {
          lists : null,
          title : null,
          endTime : null,
-         startTime : null,
-         savePath : null,
-         savePathCode : null
+         startTime : null
+         // savePath : null,
+         // savePathCode : null
       }   
    }
    
@@ -39,7 +39,8 @@ export default class Container extends React.Component {
                <Header startTime={this.state.startTime} endTime={this.state.endTime} />
                <div className={styles['container']}>
                   <ProblemList title={this.state.title} lists={this.state.lists}/>
-                  <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/>
+                  <CodeWindow lists={this.state.lists}/>
+                  {/* <CodeWindow savePath={this.state.savePath} savePathCode={this.state.savePathCode}/> */}
                </div>    
          </Fragment>        
       );
@@ -54,9 +55,9 @@ export default class Container extends React.Component {
          title : resp.problemVo.title,
          lists : resp.list,
          endTime : resp.problemVo.endTime,
-         startTime : resp.problemVo.startTime,
-         savePath : resp.savePathVoList,
-         savePathCode : resp.codeVoList
+         startTime : resp.problemVo.startTime
+         // savePath : resp.savePathVoList,
+         // savePathCode : resp.codeVoList
       }))
       .catch(err => console.error(err));
    }
