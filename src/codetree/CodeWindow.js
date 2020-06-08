@@ -30,6 +30,7 @@ const API_HEADERS={
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
+
 //const [open, setOpen] = React.useState(false);
 // const handleClickOpen = () => {
 //     this.setState({
@@ -143,6 +144,7 @@ export default class CodeWindow extends React.Component {
             <Button variant="outlined" color="primary" onClick={this.handleClickOpen.bind(this)}>
                 내 문제
             </Button>
+                <Dialog component={'div'}></Dialog>
                 <Dialog
                     open={this.state.showDialog}
                     TransitionComponent={Transition}
