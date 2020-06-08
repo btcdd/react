@@ -36,4 +36,6 @@ css-loader에  CSS Module 설정 (webpack.config.js)
 npm i -D webpack webpack-cli webpack-dev-server react react-dom @babel/core babel-loader @babel/preset-env @babel/preset-react style-loader css-loader ace-builds react-ace
 
 npm install @material-ui/core
+
+npm install -D react-addons-update
 </pre>

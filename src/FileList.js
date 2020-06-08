@@ -25,7 +25,7 @@ export default class FileList extends React.Component {
             <div className={styles['problem-file']}>
                 <ul>
                 <li><img src={file}/>Main</li>
-                <File fileList={this.props.fileList}/>
+                    <File fileList={this.props.fileList}/>
                 </ul>
             </div>
                 <button onClick={this.mouseClickAddEvent.bind(this)}>+</button>   
