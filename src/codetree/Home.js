@@ -8,6 +8,7 @@ import axios from 'axios';
 
 import Header from './Header';
 import CodeWindow from './CodeWindow';
+import ProblemList from './ProblemList';
 
 const API_URL = 'http://localhost:8088/compiletest/api/codetree';
 const API_HEADERS={
@@ -50,7 +51,8 @@ export default class Home extends React.Component {
       return (
          <Fragment>
             <Header/>
-            <div className={styles['Home']}>             
+            <div className={styles['Home']}>      
+               <ProblemList />       
                <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} saveList={this.state.saveList} onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this) } onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this) } />
             </div>
          </Fragment>

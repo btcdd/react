@@ -1,0 +1,28 @@
+.problem-list {
+    float: left;
+    width: 20%;
+    height: 96vh;
+    background-color: #283D39;
+    overflow-y: scroll;
+    resize: horizontal;
+    max-width: 200%;
+    min-width: 0px;
+}
+
+.problem-title {
+    float: inline-start;
+    width: 100%;
+    height: 5%;
+    font-weight: bold;
+}
+
+.problem-title-head {
+    text-align: left;
+    color: #fff;
+    text-shadow: 3px 2px 2px gray;
+    font-size: 1.7rem;
+    margin: 6% 4% 2% 4%;
+}
+ul {
+    padding: 0;
+}

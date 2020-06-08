@@ -33,21 +33,24 @@ export default class MyList extends React.Component {
         return (
             
             <div className={styles['MyList']} onClick={this.mouseClickEvent.bind(this)}>
-                <p>saveNo : {this.props.saveNo}</p>
-                <div className={styles['problem-no']}   >
-                    문제 번호 : {this.props.problemNo}
+                <div className={styles['MyList-top']}>
+                    <div className={styles['no-cover']}>
+                        <div className={styles['problem-no']}>
+                            No.{this.props.problemNo}
+                        </div>
+                    </div>
+                    <div className={styles['problem-title']}>
+                        {this.props.title}      
+                    </div>
                 </div>
-                <div className={styles['problem-title']}>
-                    타이틀 : {this.props.title}      
-                </div>
-                <div className={styles['problem-nickName']}>
-                    닉네임 : {this.props.nickName}
-                </div>
-                <div className={styles['problem-kind']}>
-                    문제 종류 : {this.props.kind}
-                </div>                
-                
-                
+                <div className={styles['MyList-bottom']}>
+                    <div className={styles['problem-nickName']}>
+                        작성자 : {this.props.nickName}
+                    </div>
+                    <div className={styles['problem-kind']}>
+                        문제 종류 : {this.props.kind}
+                    </div>     
+                </div>                  
             </div>
      
        );
