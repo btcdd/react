@@ -1,0 +1,74 @@
+li {
+    padding: 0 10px;
+    list-style: none;
+    margin: 0 0 8px 0;
+    color: rgb(59, 59, 59);
+}
+
+.sub-problem-title {
+    float: inline-start;
+    background-color: #D8D6D6;
+    width: 100%;
+    height: 10%;
+    font-weight: bold;
+    font-size: 1.0rem;
+}
+.problem-index {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    color:#494949;
+}
+.subtitle {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.sub-problem-title:hover {
+    background-color: #EFEEED;
+}
+
+.open {
+    padding: 0 5%;
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.close {
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    height: 0;
+    overflow: hidden;
+}
+
+p {
+    display: inline-block;
+}
+
+.problem-contents-title, .problem-examInput-title, .problem-examOutput-title {
+    font-weight: bold;
+    background-color: #997000;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 8px; 
+}
+
+.problem-contents, .problem-examInput, .problem-examOutput {
+    margin-top: 0
+}
+
+
+
+.division {
+    width: 100%;
+}
+
+
+
+ul {
+    padding: 0;
+}

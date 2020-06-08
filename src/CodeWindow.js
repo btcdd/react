@@ -190,15 +190,15 @@ export default class CodeWindow extends React.Component {
                                 </ul>
                             </nav>
                         </div>
-                        <div className={styles['code']}>
+                    
 
-                            <AceEditor
+                            <AceEditor                                
                                 height="100%"
-                                width="auto"
-                                mode={ (this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language } 
+                                width="100%"
+                                mode={(this.state.language == 'cpp' || this.state.language == 'c') ? 'c_cpp' : this.state.language}
                                 theme={this.state.mode}
                                 fontSize={parseInt(this.state.fontSize)}
-                                showPrintMargin={true}
+                                showPrintMargin={false}
                                 showGutter={true}
                                 highlightActiveLine={true}
                                 value={`${this.state.value}`}
@@ -212,10 +212,16 @@ export default class CodeWindow extends React.Component {
                                     enableLiveAutocompletion: true,
                                     enableSnippets: true,
                                     showLineNumbers: true,
-                                    tabSize: 2
+                                    tabSize: 2,
+                                    dragEnabled: true,
+                                    spellcheck: true,
+                                    wrapBehavioursEnabled: true,
+                                    hScrollBarAlwaysVisible: true,
+                                    vScrollBarAlwaysVisible: true
                                 }}
+                                
                             />
-                        </div>
+                       
                     </div>
                     <div className={styles['result']}>
                         <div className={styles['result-header']}>
@@ -226,7 +232,7 @@ export default class CodeWindow extends React.Component {
                             <br></br>
                             <p>(c) 2020 CodeForest Corporation. All rights reserved.</p>
                             <br></br>
-                            <p>> <span>result~~</span></p><p className={styles['under-bar']}>_</p>
+                            <p>> <span>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋzzzzzzㅋㅋ</span></p><p>></p><p className={styles['under-bar']}>_</p>
                         </div>
                     </div>
 
