@@ -11,7 +11,6 @@ export default class FileList extends React.Component {
     }
 
     render(){
-        // console.log("FileList Code >>>>", this.props.code);
        return (
         <div className={styles['problem-file']}>
             <ul>

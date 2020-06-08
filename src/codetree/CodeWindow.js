@@ -98,7 +98,7 @@ export default class CodeWindow extends React.Component {
             body:JSON.stringify(saveDB)
          })
          .then(resp => resp.data.data)
-         .then(resp => console.log(resp))
+         .then(resp => console.log(resp)) //저장 후 처리 필요하다
          .catch(err => console.error(err)); 
 
     }
