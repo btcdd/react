@@ -8,6 +8,7 @@ import FileList from './FileList';
 export default class PackageList extends React.Component {
     
    render(){
+      // console.log("PackageList    path>>>",this.props.path);  
       const path = this.props.path.split("/");
     //   console.log("PackageList    savePathCode>>>",this.props.savePathCode);
       return (
