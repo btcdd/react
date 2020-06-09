@@ -47,39 +47,39 @@ export default class CodeWindow extends React.Component {
         });
     }
 
-    // onValueChanged(newValue) {
-    //     if (this.state.language == "java") {
-    //         this.setState({
-    //             jValue: newValue,
-    //             value: newValue
-    //         });
-    //     } else if (this.state.language == "javascript") {
-    //         this.setState({
-    //             jsValue: newValue,
-    //             value: newValue
-    //         });
-    //     } else if (this.state.language == "c") {
-    //         this.setState({
-    //             cValue: newValue,
-    //             value: newValue
-    //         });
-    //     } else if (this.state.language == "cpp") {
-    //         this.setState({
-    //             cppValue: newValue,
-    //             value: newValue
-    //         });
-    //     } else if (this.state.language == "python") {
-    //         this.setState({
-    //             pyValue: newValue,
-    //             value: newValue
-    //         });
-    //     } else if (this.state.language == "csharp") {
-    //         this.setState({
-    //             csValue: newValue,
-    //             value: newValue
-    //         });
-    //     }
-    // }
+    onValueChanged(newValue) {
+        if (this.state.language == "java") {
+            this.setState({
+                jValue: newValue,
+                value: newValue
+            });
+        } else if (this.state.language == "javascript") {
+            this.setState({
+                jsValue: newValue,
+                value: newValue
+            });
+        } else if (this.state.language == "c") {
+            this.setState({
+                cValue: newValue,
+                value: newValue
+            });
+        } else if (this.state.language == "cpp") {
+            this.setState({
+                cppValue: newValue,
+                value: newValue
+            });
+        } else if (this.state.language == "python") {
+            this.setState({
+                pyValue: newValue,
+                value: newValue
+            });
+        } else if (this.state.language == "csharp") {
+            this.setState({
+                csValue: newValue,
+                value: newValue
+            });
+        }
+    }
 
     render() {
         // const java_Code = "public class Test{\n\t\tpublic static void main(String[] args){\n\t\t\tSystem.out.println('Hello CodeForest!');\n\t\t}\n}";

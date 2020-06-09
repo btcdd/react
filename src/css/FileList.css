@@ -7,3 +7,9 @@
     visibility: visible;
 }
 .File--remove::after  { display: inline-block; color: #d66; content: '✖'; }
+
+.code {
+    float: left;
+    width: 85%;
+    height: 100%;
+}

@@ -8,6 +8,15 @@ import FileList from './FileList';
 import file from './img/file.png';
 import update from 'react-addons-update'
 
+
+import axios from 'axios';
+
+import queryString from 'query-string';
+
+const API_URL = 'http://localhost:8088/compiletest/api/codingtest';
+const API_HEADERS={
+   'Content-Type' : 'application/json'
+} 
 export default class PackageList extends React.Component {
    constructor() {
       super(...arguments);
@@ -15,8 +24,10 @@ export default class PackageList extends React.Component {
          filenameList:[],
          showAddFile : false,
          filename:'',
-         index : 0         
+         index : 0,
+         location : location         
       };
+      
   }
 
   onInputKeyPress(event){
@@ -29,7 +40,29 @@ export default class PackageList extends React.Component {
             showAddFile : false,
             index : this.state.index + 1
          });
+         
+         const query = queryString.parse(this.state.location.search);
+
+         
+         let fileDB={
+             
+             fileName : `${event.target.value}.${this.props.language}`
+         };
+         
+         axios.post(`${API_URL}/fileSave/${query.userEmail}/${query.problemNo}/${this.props.packagelists.no}`,{
+            headers: API_HEADERS,
+            body: JSON.stringify(fileDB)
+          })
+          .then(resp =>resp.data.data)
+          .then(resp => console.log(resp))
+          .catch(err => console.error(err));
+
+
+
       }
+
+
+
    }
    mouseClickAddEvent(){
       this.setState({
@@ -57,13 +90,13 @@ export default class PackageList extends React.Component {
             });
          }
       }
-
       this.setState({
          filenameList : removedList
       });
    }
 
    render(){
+      console.log("this.props.packagelists >>>>> ",this.props.packagelists);
       return (
          <Fragment>
             <div className={styles['problem-packageList']}>
