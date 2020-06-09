@@ -4,7 +4,6 @@ import MyList from './MyList';
 import styles from './codetree_css/MyStorage.css';
 export default class MyStorage extends React.Component {
     render(){
-        
        return (
 
         <div className={styles['MyStorage']}>
@@ -18,6 +17,7 @@ export default class MyStorage extends React.Component {
                     userEmail = {this.props.userEmail}
                     onNotifySaveNoChange = {this.props.onNotifySaveNoChange}
                     onNotifyProblemNoChange = {this.props.onNotifyProblemNoChange}
+                    onNotifyTitleChange = {this.props.onNotifyTitleChange}
                 />)}
         </div>
              

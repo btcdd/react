@@ -14,6 +14,7 @@ const API_URL = 'http://localhost:8088/compiletest/api/codetree';
 const API_HEADERS={
    'Content-Type' : 'application/json'
 }
+let ProblemNO = null;
 export default class Home extends React.Component {
    constructor({match,location,history}){
       super(...arguments);
@@ -28,15 +29,19 @@ export default class Home extends React.Component {
          savePath : null,
          savePathCode : null,
          problemNo : null,
+         title : null,
+         totalList : null,
+         lists : null,
          showInfo:false
       }   
       
    }
-
+   
    onNotifyProblemNoChange(problemNo){
+      ProblemNO = problemNo;
       this.setState({
          problemNo : problemNo
-      })
+      });
    }
 
    onNotifySaveNoChange(savePath,savePathCode){
@@ -46,14 +51,20 @@ export default class Home extends React.Component {
       })
    }
 
+   onNotifyTitleChange(title){
+      this.setState({
+         title : title,
+         lists :this.state.totalList[ProblemNO]         
+      });
+   }
 
    render(){
       return (
          <Fragment>
             <Header/>
             <div className={styles['Home']}>      
-               <ProblemList />       
-               <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} saveList={this.state.saveList} onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this) } onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this) } />
+               <ProblemList title={this.state.title} lists={this.state.lists}/>       
+               <CodeWindow userEmail={this.state.userEmail} savePath={this.state.savePath}  savePathCode={this.state.savePathCode} problemNo={this.state.problemNo} saveList={this.state.saveList} onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this) } onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this) } onNotifyTitleChange={this.onNotifyTitleChange.bind(this) } />
             </div>
          </Fragment>
 
@@ -67,7 +78,8 @@ export default class Home extends React.Component {
       .then(resp => resp.data.data)
       // .then(resp => console.log(resp))
       .then(resp => this.setState({
-         saveList : resp.saveVoList
+         saveList : resp.saveVoList,
+         totalList : resp.subProblemList
       }))
       .catch(err => console.error(err));        
       

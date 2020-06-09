@@ -51,10 +51,6 @@ export default class CodeWindow extends React.Component {
            language : "java",
            mode : "monokai",
            value : "Hello Forest!",
-           saveList : null,
-           savePath : null,
-           savePathCode : null,
-           problemNo : null,
            fontSize : 15,
            showDialog : false       
        }
@@ -126,14 +122,16 @@ export default class CodeWindow extends React.Component {
         });
     }
   
-     onNotifyProblemNoChange(problemNo){
-        this.props['onNotifyProblemNoChange'](problemNo);
-     }
+    //  onNotifyProblemNoChange(problemNo){
+    //     this.props['onNotifyProblemNoChange'](problemNo);
+    //  }
   
-     onNotifySaveNoChange(savePath,savePathCode){
-        this.props['onNotifySaveNoChange'](savePath,savePathCode);
-     }
-
+    //  onNotifySaveNoChange(savePath,savePathCode){
+    //     this.props['onNotifySaveNoChange'](savePath,savePathCode);
+    //  }
+    //  onNotifyTitleChange(title) {
+    //      this.props['onNotifyTitleChange'](title);
+    //  }
     render(){
 
     //   console.log("CodeWindow this.state.value>>>>>",this.state.value);
@@ -156,7 +154,7 @@ export default class CodeWindow extends React.Component {
                     <DialogTitle id="alert-dialog-slide-title">{"문제를 선택해주세요!"}</DialogTitle>
                     <DialogContent>
                     <DialogContentText id="alert-dialog-slide-description">
-                        <MyStorage saveList={this.props.saveList} userEmail={this.props.userEmail} onNotifySaveNoChange={this.onNotifySaveNoChange.bind(this)}  onNotifyProblemNoChange={this.onNotifyProblemNoChange.bind(this)} />
+                        <MyStorage saveList={this.props.saveList} userEmail={this.props.userEmail} onNotifySaveNoChange={this.props.onNotifySaveNoChange}  onNotifyProblemNoChange={this.props.onNotifyProblemNoChange} onNotifyTitleChange={this.props.onNotifyTitleChange} />
                     </DialogContentText>
                     </DialogContent>
                     <DialogActions>

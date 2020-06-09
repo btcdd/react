@@ -18,18 +18,21 @@ export default class MyList extends React.Component {
       }    
     mouseClickEvent(){
         //problemNo를 올리는 위치
+        // console.log("this.props.problemNo >>>>>> ",this.props.problemNo);
+        // console.log("this.props.title >>>>>> ",this.props.title);
         this.props['onNotifyProblemNoChange'](this.props.problemNo);
-
+        this.props['onNotifyTitleChange'](this.props.title);
         axios.post(`${API_URL}/list/${this.props.userEmail}/${this.props.saveNo}`,{
             headers: API_HEADERS
          })
          .then(resp => resp.data.data)
          .then(resp => this.props['onNotifySaveNoChange'](resp.savePathVoList,resp.codeVoList))
-         .catch(err => console.error(err));                
+         .catch(err => console.error(err));          
          
     }
     
     render(){
+        
         return (
             
             <div className={styles['MyList']} onClick={this.mouseClickEvent.bind(this)}>
