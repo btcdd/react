@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import styles from './css/PackageList.css';
 
@@ -8,68 +8,115 @@ import FileList from './FileList';
 import file from './img/file.png';
 import update from 'react-addons-update'
 
+
+import axios from 'axios';
+
+import queryString from 'query-string';
+
+const API_URL = 'http://localhost:8088/compiletest/api/codingtest';
+const API_HEADERS={
+   'Content-Type' : 'application/json'
+} 
 export default class PackageList extends React.Component {
    constructor() {
       super(...arguments);
       this.state = {
-         filenameList:[]
+         filenameList:[],
+         showAddFile : false,
+         filename:'',
+         index : 0,
+         location : location         
       };
+      
   }
 
-  onInputKeyPress(fileFullName){
-   if(event.key=='Enter'){
-         let newList = update(this.state.filenameList,{
-            $push : [[<li><img src={file}/>{event.target.value}.{this.props.language}</li>]]
-            // $push : [[`${event.target.value}.${this.props.language}`]]
-         });      
-        this.setState({
-           filenameList : newList
-        });
+  onInputKeyPress(event){
+      if(event.key=='Enter'){
+            let newList = update(this.state.filenameList,{
+               $push : [[<li key={this.state.index}><img src={file}/>{event.target.value}.{this.props.language}</li>]]
+            });      
+         this.setState({
+            filenameList : newList,
+            showAddFile : false,
+            index : this.state.index + 1
+         });
+         
+         const query = queryString.parse(this.state.location.search);
+
+         
+         let fileDB={
+             
+             fileName : `${event.target.value}.${this.props.language}`
+         };
+         
+         axios.post(`${API_URL}/fileSave/${query.userEmail}/${query.problemNo}/${this.props.packagelists.no}`,{
+            headers: API_HEADERS,
+            body: JSON.stringify(fileDB)
+          })
+          .then(resp =>resp.data.data)
+          .then(resp => console.log(resp))
+          .catch(err => console.error(err));
+
+
+
+      }
+
+
+
    }
-}
+   mouseClickAddEvent(){
+      this.setState({
+         showAddFile : !this.state.showAddFile
+      }); 
+   } 
+   handleClick(){
+      this.nameInput.focus();
+   }
+   onInputChange(event){
+      this.setState({
+         filename: event.target.value  
+      });
+   }
 
 
-//   callbackAddList(){
-//    let newList = update(this.state.list,{
-//       $push : [[<li><img src={file}/>{this.props.language}</li>]]
-//    });
-//    this.setState({
-//        list : newList
-//    });
-//    console.log("this.state.Map  list>>>>>>>",this.state.list&&this.state.list.map((resp)=>console.log(resp)));
-   
-//    }
 
-   // callbackDeleteList(){
-   //    let newList = update(this.state.list,{
-   //       $splice : [[this.state.list,1]]
-   //    });
-   //    this.setState({
-   //       list : newList
-   //    });
-   // }
+   callbackDeleteFile(fileIndex){
+      
+      let removedList = [];
+      for(let i=0;i<this.state.filenameList.length;i++){
+         if(fileIndex != i) {
+            removedList = update(removedList,{
+               $push : [this.state.filenameList[i]]
+            });
+         }
+      }
+      this.setState({
+         filenameList : removedList
+      });
+   }
 
    render(){
-            
+      console.log("this.props.packagelists >>>>> ",this.props.packagelists);
       return (
-         <div className={styles['problem-packageList']}>
-                <li>
-                    <img src={package_s}/>Problem01
-                    <FileList  
-                  //   key={this.state.list.length}
-                  //   listCallbacks={{add:this.callbackAddList.bind(this),delete:this.callbackDeleteList.bind(this)}}
-                  //   fileList={this.state.list}
-                  //   language={this.props.language}
-                    onInputKeyPress={this.onInputKeyPress.bind(this)}
-                    filenameList={this.state.filenameList}
-                    />
-
+         <Fragment>
+            <div className={styles['problem-packageList']}>
+                  <li>
+                     <img src={package_s}/>문제 {this.props.index}
+                        {this.state.filenameList.map( (filelist,index) => <FileList
+                        key={index}
+                        index={index}
+                        filelist={filelist}
+                        callbackDeleteFile={this.callbackDeleteFile.bind(this)}
+                        />)}
+                  </li>
+            </div>
                      
-                </li>
-                  
                 
-         </div>
-            
+            <div className={this.state.showAddFile ? styles['open'] : styles['close']}>
+               <input  ref={(ref) => {this.nameInput = ref;}} type='text' value={this.state.filename} onClick={this.handleClick.bind(this)} onChange={this.onInputChange.bind(this)} onKeyPress={this.onInputKeyPress.bind(this)}/>                  
+            </div>
+            <button onClick={this.mouseClickAddEvent.bind(this)}>+</button>   
+         </Fragment>
       );
    }
 }
