@@ -49,7 +49,7 @@ export default class PackageList extends React.Component {
              fileName : `${event.target.value}.${this.props.language}`
          };
          
-         axios.post(`${API_URL}/fileSave/${query.userEmail}/${query.problemNo}/${this.props.packagelists.no}`,{
+         axios.post(`${API_URL}/fileInsert/${query.userEmail}/${query.problemNo}/${this.props.packagelists.no}`,{
             headers: API_HEADERS,
             body: JSON.stringify(fileDB)
           })
@@ -80,8 +80,9 @@ export default class PackageList extends React.Component {
 
 
 
-   callbackDeleteFile(fileIndex){
-      
+   callbackDeleteFile(fileIndex,fileName){
+      console.log("fileName >>> >>> >>",fileName);
+
       let removedList = [];
       for(let i=0;i<this.state.filenameList.length;i++){
          if(fileIndex != i) {
@@ -93,10 +94,26 @@ export default class PackageList extends React.Component {
       this.setState({
          filenameList : removedList
       });
+
+
+      const query = queryString.parse(this.state.location.search);
+      let fileDB={
+         fileName : fileName
+     };      
+     console.log("fileDB >>",fileDB);
+     console.log("fileDB >>",fileDB.fileName);
+     axios.post(`${API_URL}/fileDelete/${query.userEmail}/${query.problemNo}/${this.props.packagelists.no}`,{
+      headers: API_HEADERS,
+      body: JSON.stringify(fileDB)
+    })
+    .then(resp =>resp.data.data)
+    .then(resp => console.log(resp))
+    .catch(err => console.error(err));
+
    }
 
    render(){
-      console.log("this.props.packagelists >>>>> ",this.props.packagelists);
+      // console.log("this.props.packagelists >>>>> ",this.props.packagelists);
       return (
          <Fragment>
             <div className={styles['problem-packageList']}>

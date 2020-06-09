@@ -34,7 +34,7 @@ export default class Container extends React.Component {
    }
    
    render(){
-      console.log("lists>>>>>>>>>>>>>>>>>>>>",this.state.lists);
+      
       return (
          <Fragment>
                <Header startTime={this.state.startTime} endTime={this.state.endTime} />

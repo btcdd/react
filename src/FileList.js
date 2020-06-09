@@ -16,8 +16,8 @@ export default class FileList extends React.Component {
         
     }
     selectRemoveEvent(){
-        this.props.callbackDeleteFile(this.props.index);
-        // console.log("this.props.index>>>>>",this.props.index);
+        const fileName = this.props.filelist[0].props.children[1]+this.props.filelist[0].props.children[2]+this.props.filelist[0].props.children[3];
+        this.props.callbackDeleteFile(this.props.index,fileName);
     }
     render(){
        return (
