@@ -5,3 +5,12 @@ img {
 .problem-packageList, .problem-file {
     margin-left: 15px;
 }
+
+.close {
+    height:0px;
+    visibility:hidden;
+}
+
+.open {
+    visibility: visible;
+}
