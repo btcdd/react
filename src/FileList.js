@@ -7,7 +7,6 @@ export default class FileList extends React.Component {
     constructor() {
         super(...arguments);
         this.state = {
-            
         };
     }    
     selectFile(){
