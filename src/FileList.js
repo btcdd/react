@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 
 import styles from './css/FileList.css';
 
-
+// import AceEditor from './AceEditor';
 export default class FileList extends React.Component {
     constructor() {
         super(...arguments);
@@ -10,6 +10,11 @@ export default class FileList extends React.Component {
             
         };
     }    
+    selectFile(){
+        
+        // console.log("parent.location.href>>",parent.location.href);
+        
+    }
     selectRemoveEvent(){
         this.props.callbackDeleteFile(this.props.index);
         // console.log("this.props.index>>>>>",this.props.index);
@@ -19,12 +24,13 @@ export default class FileList extends React.Component {
         <Fragment>
             <div className={styles['problem-file']}>
                 <div >                    
-                    <ul onClick={this.selectRemoveEvent.bind(this)}>    
+                    <ul onClick={this.selectFile.bind(this)}>    
                         {this.props.filelist}
-                        <a href='#' className={styles['File--remove']} />    
                     </ul>
-                </div>
+                    <a href='#' className={styles['File--remove']} onClick={this.selectRemoveEvent.bind(this)}/>    
+                </div>                
             </div>
+            
         </Fragment>
        );
     }
