@@ -144,7 +144,8 @@ export default class CodeWindow extends React.Component {
         //         this.state.value = this.state.csValue;
         //     }
         // }
-        console.log("this.props.lists>>>>>",this.props.lists);
+        // console.log("this.props.lists>>>>>",this.props.lists);
+        // console.log("this.props.lists>>>>>",this.props.lists && this.props.lists.map((resp,index) => console.log(resp,index) ));
         
         return (
             <div className={styles.CodeWindow}>
@@ -183,8 +184,10 @@ export default class CodeWindow extends React.Component {
                             <hr />
                             <nav>
                                 <ul className={styles['problem-name']}>
-                                    {this.props.lists && this.props.lists.map( (packagelists) => <PackageList
-                                        key={packagelists.no}
+                                    {this.props.lists && this.props.lists.map( (packagelists,index) => <PackageList
+                                        key={index}
+                                        index={index+1}
+                                        packagelists={packagelists}
                                         language={this.state.language}
                                     />)}
                                 </ul>

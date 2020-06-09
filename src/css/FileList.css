@@ -6,3 +6,4 @@
 .open {
     visibility: visible;
 }
+.File--remove::after  { display: inline-block; color: #d66; content: '✖'; }
