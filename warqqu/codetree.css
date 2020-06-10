@@ -1,0 +1,321 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container { 
+    width: 100%;
+    height: 96vh;
+    display: flex;
+}
+
+/* ---------------- header -------------------- */
+.header {
+    width: 100%;
+    height: 4vh;
+    background-color: rgba(248,248,248,90%);
+    float: left;
+}
+
+.logo {
+    float: left;
+    height: 100%;
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    color: #283D39;
+    font-size: 1.7rem;
+    margin: 0 1vw;
+}
+
+.menu {
+    float: left;
+    background-color: rgba(248,248,248,90%);
+    width: 30%;
+    height: 100%;
+}
+
+.dropbtn {
+    background-color: rgba(248,248,248,90%);
+    color: #414141;
+    padding: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+}
+
+.dropbtn:hover {
+    color: #997000
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 120px;
+    font-size: 14px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: rgba(248,248,248,90%);}
+
+/* ------------ problem-list -------------------- */
+.problem-list {
+    float: initial;
+    width: 20%;
+    height: 96vh;
+    background-color: #283D39;
+    overflow-y: scroll;
+    resize: horizontal;
+    max-width: 200%;
+    min-width: 0px;
+}
+
+.problem-title {
+    float: inline-start;
+    width: 100%;
+    height: 5%;
+    font-weight: bold;
+}
+
+.problem-title-head {
+    text-align: left;
+    color: #fff;
+    text-shadow: 3px 2px 2px gray;
+    font-size: 1.7rem;
+    margin: 6% 4% 2% 4%;
+}
+
+/* ----------- problem ------------------------- */
+li {
+    padding: 0 10px;
+    list-style: none;
+    margin: 0 0 8px 0;
+    color: rgb(59, 59, 59);
+}
+
+.sub-problem-title {
+    float: inline-start;
+    background-color: #D8D6D6;
+    width: 100%;
+    height: 10%;
+    font-weight: bold;
+    font-size: 1.0rem;
+}
+.problem-index {
+    float: left;
+    width: 25%;
+    height: 100%;
+    text-align: center;
+    color:#494949;
+}
+.subtitle {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.sub-problem-title:hover {
+    background-color: #EFEEED;
+}
+
+.problem-open {
+    padding: 0 5%;
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.close {
+    background-color: #FCFBF4;
+    transition: all 0.05s ease-in-out;
+    height: 0;
+    overflow: hidden;
+}
+
+p {
+    display: inline-block;
+}
+
+.problem-contents-title, .problem-examInput-title, .problem-examOutput-title {
+    font-weight: bold;
+    background-color: #997000;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 8px; 
+}
+
+.problem-contents, .problem-examInput, .problem-examOutput {
+    margin-top: 0
+}
+
+.division {
+    width: 100%;
+}
+
+ul {
+    padding: 0;
+}
+
+/* ---------------- code-window ------------------------- */
+.code-window {
+    float: left;
+    width: 100%;
+    height: 96vh;
+    max-width: 100%;
+    min-width: 0px;
+}
+
+.open {
+    padding: 0 5%;
+    background-color: rgb(238, 208, 11);
+    transition: all 0.05s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: lighter;
+}
+
+.close {
+    background-color: rgb(228, 199, 15);
+    transition: all 0.05s ease-in-out;
+    height: 0;
+    overflow: hidden;
+}
+
+.navigator {
+    background-color: #E8E9E7;
+    width: 100%;
+    height: 4%;
+}
+
+.code-mirror {
+    width: 100%;
+    height: 96%;
+}
+
+.file {
+    float: left;
+    background-color: #fff;
+    width: 15%;
+    height: 100%;
+    overflow: scroll;
+    resize: horizontal;
+}
+
+.problem-explorer {
+    color: #997000;
+    font-weight: bold;
+    text-align: center;
+}
+
+.code {
+    float: left;
+    width: 85%;
+    height: 100%;
+}
+
+.cover {
+    display: flex;
+    width: 100%;
+    height: 75%; 
+}
+.language-selector {
+    float: right;
+}
+
+.theme-selector {
+    float: right;
+}
+
+.font-size {
+    float: right;
+}  
+
+hr {
+    margin: 0
+}
+
+/* -------------------- package-list ------------------- */
+.file-img {
+    margin-right: 8px;
+}
+
+.problem-packageList, .problem-file {
+    margin-left: 15px;
+}
+
+/* ------------------- result --------------------- */
+.result {
+    background-color: rgb(179, 179, 179);
+    width: 100%;
+    height: 25%;
+}
+.result-header {
+    background-color: #555;
+    height: 10%;
+    text-align: left;
+    color: #DDD;
+    overflow: hidden;
+    font-size: small;
+}
+.result-header p {
+    float: left;
+    margin-top: 0.2%;
+}
+.result-body {
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    background-color: #000;
+    color: #63de00;
+}
+.cmd-img {
+    margin-top: 0.2%;
+    float: left;
+    margin-left: 1%;
+    margin-right: -1%;
+}
+.cmd-title {
+    float: left;
+    margin-top: 0;
+    margin-left: 2%;
+    font-size: xx-small;
+
+}
+.result-body p {
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-right: -1%;
+    margin-bottom: -20%;
+    font-size: small;
+}
+.under-bar {    
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
