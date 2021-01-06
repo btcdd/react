@@ -16,7 +16,7 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "ace-builds": "^1.4.11",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-loader": "^8.1.0",
     "cors": "^2.8.5",
     "css-loader": "^3.5.3",
